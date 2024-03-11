@@ -1,0 +1,51 @@
+.home-catalog {
+	padding: 0 2rem;
+	margin-bottom: 8rem;
+
+	h2 {
+		font-size: 2.2rem;
+		line-height: 2.812rem;
+		font-weight: 900;
+		color: #474747;
+		margin-bottom: 2rem;
+		display: inline-block;
+
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 65%;
+			height: 3px;
+			background-color: #ea5544;
+			top: -4.5px;
+			left: 0;
+		}
+	}
+
+	.carousel {
+		position: relative;
+
+		img {
+			min-width: 335px;
+		}
+
+		p {
+			position: absolute;
+			left: 50%;
+			bottom: 20px;
+			transform: translateX(-50%);
+
+			font-size: 1.6rem;
+			line-height: 2.045rem;
+			font-weight: 800;
+			color: #fff;
+			text-transform: uppercase;
+			text-align: center;
+		}
+	}
+
+	.catalog-grid {
+		display: none;
+	}
+}

@@ -1,0 +1,75 @@
+.home-about {
+	padding: 0 2rem;
+	margin-bottom: 8rem;
+
+	.home-about__content {
+		h2 {
+			font-size: 2.2rem;
+			line-height: 2.812rem;
+			font-weight: 900;
+			color: #474747;
+			text-transform: uppercase;
+			margin-bottom: 1rem;
+			position: relative;
+
+			&:before {
+				position: absolute;
+				content: '';
+				width: 42%;
+				height: 3px;
+				background-color: #ea5544;
+				top: -4.5px;
+			}
+		}
+
+		p {
+			font-size: 1.2rem;
+			line-height: 2.04rem;
+			font-weight: 600;
+			color: #242424;
+
+			margin-bottom: 8px;
+		}
+
+		button {
+			font-size: 1.1rem;
+			line-height: 1.406rem;
+			font-weight: 700;
+			color: #fff;
+
+			border: none;
+			background-color: #ea5544;
+			padding: 1.9rem 4.35rem;
+
+			margin-top: 1.2rem;
+			margin-bottom: 6rem;
+		}
+	}
+
+	.home-about__carousel {
+		figure {
+			position: relative;
+			max-width: 249px;
+			margin: 0 auto;
+
+			img {
+				width: 100%;
+			}
+
+			figcaption {
+				position: absolute;
+
+				color: #fff;
+				bottom: 2rem;
+				left: 40%;
+				transform: translateX(-35%);
+
+				font-size: 1.2rem;
+				line-height: 1.534rem;
+				font-weight: 800;
+				text-align: center;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
