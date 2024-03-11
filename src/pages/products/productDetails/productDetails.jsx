@@ -1,9 +1,7 @@
-import React from 'react'
+import './productDetails.scss';
 
 function productDetails() {
-  return (
-    <div>productDetails</div>
-  )
+	return <div>productDetails</div>;
 }
 
-export default productDetails
+export default productDetails;
