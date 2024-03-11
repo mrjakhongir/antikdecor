@@ -2,3 +2,63 @@
 $mainColor: #242424;
 $accentColor: #cb0014;
 $lightColor: #ffffff;
+
+// breackpoints
+
+html {
+	font-size: 10px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+	.section {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.container {
+		width: 100%;
+		max-width: 610px;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 768px) {
+	.section {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.container {
+		width: 100%;
+		max-width: 728px;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 1024px) {
+	.section {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.container {
+		width: 100%;
+		max-width: 964px;
+		margin: 0 auto;
+	}
+}
+@media (min-width: 1025px) {
+	.section {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.container {
+		width: 100%;
+		max-width: 1360px;
+		margin: 0 auto;
+	}
+}

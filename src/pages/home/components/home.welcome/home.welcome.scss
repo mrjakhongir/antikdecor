@@ -1,0 +1,67 @@
+.home-welcome {
+	background-image: url('../../../../assets/png/home_hero.png');
+	background-repeat: no-repeat;
+	background-position: 35%;
+	background-size: cover;
+
+	padding: 33.5rem 2rem 3.5rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.home-welcome__content {
+		h1 {
+			font-size: 2.8rem;
+			line-height: 3.578rem;
+			font-weight: 800;
+			text-transform: uppercase;
+			color: #fff;
+			margin-bottom: 0.8rem;
+		}
+
+		p {
+			font-size: 1.2rem;
+			line-height: 1.534rem;
+			color: #fff;
+			margin-bottom: 2rem;
+		}
+
+		button {
+			font-size: 1.1rem;
+			line-height: 1.406rem;
+			font-weight: 700;
+			color: #fff;
+
+			padding: 1.9rem 4.55rem;
+
+			border: none;
+			background-color: #ea5544;
+
+			margin-bottom: 13.3rem;
+		}
+	}
+
+	.home-welcome__slider {
+		.slider_small {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+
+			.slider-indicator {
+				width: 41px;
+				height: 2px;
+				background-color: #fff;
+			}
+
+			.slider-active {
+				background-color: #ea5544;
+			}
+		}
+
+		.slider_large {
+			display: none;
+		}
+	}
+}
