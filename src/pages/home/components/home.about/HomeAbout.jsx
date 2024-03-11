@@ -5,7 +5,7 @@ function HomeAbout() {
 	return (
 		<div className='home-about'>
 			<div className='home-about__content'>
-				<h2>о нашей компании</h2>
+				<h2 className='subtitle'>о нашей компании</h2>
 				<p>
 					"Гравюрный кабинет Antikdecor – камерный антикварный магазин в
 					старинном доме начала XX века, расположенном на Садовом кольце в
@@ -23,6 +23,7 @@ function HomeAbout() {
 					<img src={aboutImg} alt='golden vase' />
 					<figcaption>Золотой кувшин рюдрика</figcaption>
 				</figure>
+				<div className='swiper-btns'></div>
 			</div>
 		</div>
 	);

@@ -8,6 +8,7 @@ $lightColor: #ffffff;
 html {
 	font-size: 10px;
 	font-family: 'Montserrat', sans-serif;
+	background-color: #d4d4d410;
 }
 
 * {
@@ -61,4 +62,31 @@ html {
 		max-width: 1360px;
 		margin: 0 auto;
 	}
+}
+
+.subtitle {
+	font-size: 2.2rem;
+	line-height: 2.812rem;
+	font-weight: 900;
+	color: #474747;
+	margin-bottom: 2rem;
+	display: inline-block;
+	text-transform: uppercase;
+
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: 65%;
+		height: 3px;
+		background-color: #ea5544;
+		top: -4.5px;
+		left: 0;
+	}
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
 }

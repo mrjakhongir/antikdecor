@@ -7,11 +7,11 @@ import Contacts from './pages/contacts/Contacts';
 import News from './pages/news/News';
 import Products from './pages/products/Products';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
 	return (
 		<div className='section'>
-			{/* <div className='container'> */}
 			<Header />
 			<Routes>
 				<Route path='/' element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
 				<Route path='/news' element={<News />} />
 				<Route path='/news' element={<Products />} />
 			</Routes>
-			{/* </div> */}
+			<Footer />
 		</div>
 	);
 }
