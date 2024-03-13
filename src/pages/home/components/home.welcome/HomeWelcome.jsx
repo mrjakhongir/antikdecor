@@ -4,7 +4,6 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 
 import polygonLeft from '../../../../assets/svg/polygon_left.svg';
-import polygonRight from '../../../../assets/svg/polygon_right.svg';
 
 import data from '../../../../data.json';
 const welcome = data.welcome;
@@ -40,10 +39,32 @@ function HomeWelcome() {
 				<div className='pagination_small'></div>
 				<div className='pagination_large'>
 					<div className='pagination_prev_btn'>
-						<img src={polygonLeft} alt='' />
+						<svg
+							width='10'
+							height='10'
+							viewBox='0 0 10 10'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'>
+							<path
+							className='welcome__polygon'
+								d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
+								stroke='white'
+							/>
+						</svg>
 					</div>
 					<div className='pagination_next_btn'>
-						<img src={polygonRight} alt='' />
+						<svg
+							width='10'
+							height='10'
+							viewBox='0 0 10 10'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'>
+							<path
+							className='welcome__polygon'
+								d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
+								stroke='white'
+							/>
+						</svg>
 					</div>
 				</div>
 			</div>

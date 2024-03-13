@@ -3,11 +3,14 @@ $mainColor: #242424;
 $accentColor: #cb0014;
 $lightColor: #ffffff;
 
-// breackpoints
+@font-face {
+	font-family: 'MontBlack';
+	src: url('./fonts/MontBlack.ttf');
+}
 
 html {
 	font-size: 10px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: Montserrat, serif;
 	background-color: #d4d4d410;
 }
 
