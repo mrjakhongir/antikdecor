@@ -33,13 +33,29 @@
 	@media (min-width: 768px) {
 		div:first-child {
 			padding: 0 3rem;
-
-			h2 {
-				margin-bottom: 3rem;
-			}
 		}
 		.home-video__carousel {
 			padding: 0 3rem;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		margin-bottom: 10rem;
+		div:first-child {
+			padding: 0 4rem;
+		}
+		.home-video__carousel {
+			padding: 0 4rem;
+		}
+	}
+
+	@media (min-width: 1440px) {
+		margin-bottom: 14rem;
+		div:first-child {
+			padding: 0 7.2rem;
+		}
+		.home-video__carousel {
+			padding: 0 7.2rem;
 		}
 	}
 }

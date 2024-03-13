@@ -86,6 +86,7 @@
 	}
 
 	@media (min-width: 1024px) {
+		margin-bottom: 10rem;
 		div:first-child {
 			padding: 0 4rem;
 		}
@@ -94,11 +95,20 @@
 			padding: 0 4rem;
 
 			.swiper-slide {
-				border: 1px solid;
 				.new-product__card:hover {
 					cursor: grab;
 				}
 			}
+		}
+	}
+
+	@media (min-width: 1440px) {
+		margin-bottom: 14rem;
+		div:first-child {
+			padding: 0 7.2rem;
+		}
+		.home-new-products__carousel {
+			padding: 0 7.2rem;
 		}
 	}
 }

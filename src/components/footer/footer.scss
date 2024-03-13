@@ -5,6 +5,7 @@
 	.footer-nav {
 		display: flex;
 		justify-content: space-between;
+		gap: 2rem;
 		flex-wrap: wrap;
 		color: #fff;
 		padding: 0 1rem;
@@ -21,13 +22,13 @@
 			cursor: default;
 		}
 
-		.footer-catalog,
+		.footer-menu,
 		.footer-contacts {
 			display: flex;
 			flex-direction: column;
 		}
 
-		.footer-menu {
+		.footer-catalog {
 			display: flex;
 			flex-direction: column;
 			flex-wrap: wrap;
@@ -78,5 +79,53 @@
 		display: block;
 		margin: 0 auto;
 		max-width: 191px;
+	}
+
+	@media (min-width: 768px) {
+		padding: 4rem 3rem 2rem;
+		.footer-nav {
+			padding: 0;
+			.footer-catalog {
+				order: 0;
+			}
+		}
+	}
+
+	@media (min-width: 1024px) {
+		padding: 4rem 4rem;
+		.footer-nav {
+			margin-bottom: 3rem;
+			a {
+				font-size: 1.4rem;
+				line-height: 2.2rem;
+				&:hover {
+					text-decoration: underline;
+					text-underline-offset: 3px;
+					cursor: pointer;
+				}
+			}
+			.footer-catalog {
+				flex-direction: row;
+				justify-content: space-between;
+				gap: 7rem;
+				align-items: flex-end;
+			}
+		}
+		> img {
+			max-width: 223px;
+			margin-left: 0;
+		}
+		h3 {
+			text-transform: uppercase;
+			font-size: 1.8rem;
+			line-height: 2.3rem;
+		}
+	}
+
+	@media (min-width: 1440px) {
+		padding: 6rem 7.2rem;
+		.footer-nav {
+			margin-bottom: 5rem;
+		}
 	}
 }

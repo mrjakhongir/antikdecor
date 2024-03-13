@@ -104,7 +104,12 @@
 		}
 	}
 
+	@media (min-width: 1024px) {
+		padding: 0 4rem;
+	}
+
 	@media (min-width: 1100px) {
+		margin-bottom: 10rem;
 		.home-contacts__content {
 			.home-contacts__left {
 				form {
@@ -114,7 +119,7 @@
 
 					input {
 						max-width: 223px;
-						padding: 2.1rem 3rem;
+						padding: 2rem 3rem;
 					}
 
 					button {
@@ -140,5 +145,13 @@
 			.home-contacts__right {
 			}
 		}
+	}
+
+	@media (min-width: 1440px) {
+		margin-bottom: 14rem;
+		.home-contacts__content {
+			padding: 0 0 0 5rem;
+		}
+		padding: 0 7.2rem;
 	}
 }

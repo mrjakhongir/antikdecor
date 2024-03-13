@@ -2,13 +2,12 @@ import { Link } from 'react-router-dom';
 import './footer.scss';
 
 import footerLogo from '../../assets/svg/antikdecor_logo_big.svg';
-import phone from '../../assets/svg/phone.svg';
 
 function Footer() {
 	return (
 		<footer className='footer'>
 			<nav className='footer-nav'>
-				<div className='footer-catalog'>
+				<div className='footer-menu'>
 					<h3>Меню сайта</h3>
 					<Link to='#'>Главная</Link>
 					<Link to='#'>Каталог</Link>
@@ -16,7 +15,7 @@ function Footer() {
 					<Link to='#'>О нас</Link>
 					<Link to='#'>Контакты</Link>
 				</div>
-				<div className='footer-menu'>
+				<div className='footer-catalog'>
 					<div>
 						<h3>Каталог</h3>
 						<Link to='#'>

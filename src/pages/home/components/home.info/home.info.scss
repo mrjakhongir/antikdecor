@@ -43,20 +43,33 @@
 
 	@media (min-width: 768px) {
 		padding: 0 3rem;
-		h2 {
-			margin-bottom: 3rem;
-		}
+
 		.home-info__cards_wrapper {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 		}
-		.home-info__card {
-			// max-width: 340px;
-			height: 289px;
 
+		.home-info__card {
 			p {
 				font-size: 1.3rem;
 			}
 		}
+	}
+
+	@media (min-width: 1024px) {
+		margin-bottom: 10rem;
+		padding: 0 4rem;
+	}
+
+	@media (min-width: 1140px) {
+		.home-info__cards_wrapper {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 2.4rem;
+		}
+	}
+
+	@media (min-width: 1440px) {
+		margin-bottom: 14rem;
+		padding: 0 7.2rem;
 	}
 }

@@ -1,7 +1,7 @@
-import './home.contacts.scss';
-import globe from '../../../../assets/png/home_contact.png';
+import './contact.us.scss';
+import globe from '../../assets/png/home_contact.png';
 
-function HomeContacts() {
+function ContactUs() {
 	return (
 		<div className='home-contacts'>
 			<h2 className='subtitle'>Обратная связь</h2>
@@ -26,4 +26,4 @@ function HomeContacts() {
 	);
 }
 
-export default HomeContacts;
+export default ContactUs;

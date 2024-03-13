@@ -159,4 +159,10 @@
 			}
 		}
 	}
+
+	@media (min-width: 1440px) {
+		.home-about__content {
+			padding: 0 7.2rem;
+		}
+	}
 }
