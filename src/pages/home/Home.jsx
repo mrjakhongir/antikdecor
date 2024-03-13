@@ -14,17 +14,15 @@ function Home() {
 	return (
 		<div className='home'>
 			<HomeWelcome />
-			<div className='home-components'>
-				<HomeCatalog />
-				<HomeAbout />
-				<HomeNewProducts />
-				<HomeInfo />
-				<Home3dTur />
-				<HomeNews />
-				<HomeVideo />
-				<HomeReviews />
-				<HomeContacts />
-			</div>
+			<HomeCatalog />
+			<HomeAbout />
+			<HomeNewProducts />
+			<HomeInfo />
+			<Home3dTur />
+			<HomeNews />
+			<HomeVideo />
+			<HomeReviews />
+			<HomeContacts />
 		</div>
 	);
 }

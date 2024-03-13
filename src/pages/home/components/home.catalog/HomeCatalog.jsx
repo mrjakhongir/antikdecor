@@ -1,17 +1,54 @@
 import './home.catalog.scss';
-import catalogImg1 from '../../../../assets/png/catalog_1.png';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
+import data from '../../../../data.json';
+const catalog = data.catalog;
 
 function HomeCatalog() {
 	return (
 		<div className='home-catalog'>
-			<h2 className='subtitle'>Каталог</h2>
-			<div className='home-catalog__carousel'>
-				<figure>
-					<img src={catalogImg1} alt='case clock' />
-					<figcaption>ЧАСЫ И НАУЧНЫЕ ПРИБОРЫ</figcaption>
-				</figure>
+			<div>
+				<h2 className='subtitle'>Каталог</h2>
 			</div>
-			<div className='catalog-grid'></div>
+			<Swiper
+				centeredSlides={true}
+				slidesPerView='auto'
+				spaceBetween={10}
+				loop={true}
+				className='home-catalog__carousel'
+				breakpoints={{
+					640: {
+						spaceBetween: 15,
+					},
+				}}>
+				{catalog.map((el) => (
+					<SwiperSlide>
+						{
+							<figure>
+								<img src={el.img} alt='case clock' />
+								<figcaption>{el.title}</figcaption>
+							</figure>
+						}
+					</SwiperSlide>
+				))}
+			</Swiper>
+			<div className='catalog-grid__medium'>
+				{catalog.slice(0, 6).map((el) => (
+					<figure className={`${el.imgSize}`}>
+						<img src={el.img} alt='case clock' />
+						<figcaption>{el.title}</figcaption>
+					</figure>
+				))}
+			</div>
+			<div className='catalog-grid__large'>
+				{catalog.map((el) => (
+					<figure className={`${el.imgSize}`}>
+						<img src={el.img} alt='case clock' />
+						<figcaption>{el.title}</figcaption>
+					</figure>
+				))}
+			</div>
 		</div>
 	);
 }

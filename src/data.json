@@ -1,0 +1,200 @@
+{
+	"welcome": [
+		{
+			"id": 1,
+			"img": "./images/home_hero.png",
+			"title": "Первый в РосСии гравюрный кабинет",
+			"description": "Открой историю вместе с нами: коллекция антикварных сокровищ"
+		},
+		{
+			"id": 2,
+			"img": "./images/home_hero.png",
+			"title": "Первый в РосСии гравюрный кабинет",
+			"description": "Открой историю вместе с нами: коллекция антикварных сокровищ"
+		},
+		{
+			"id": 3,
+			"img": "./images/home_hero.png",
+			"title": "Первый в РосСии гравюрный кабинет",
+			"description": "Открой историю вместе с нами: коллекция антикварных сокровищ"
+		},
+		{
+			"id": 4,
+			"img": "./images/home_hero.png",
+			"title": "Первый в РосСии гравюрный кабинет",
+			"description": "Открой историю вместе с нами: коллекция антикварных сокровищ"
+		}
+	],
+	"catalog": [
+		{
+			"id": 1,
+			"img": "./images/catalog_1.png",
+			"imgSize": "normal",
+			"title": "ЧАСЫ И НАУЧНЫЕ ПРИБОРЫ"
+		},
+
+		{
+			"id": 2,
+			"img": "./images/catalog_2.png",
+			"imgSize": "vertical",
+			"title": "ЖИВОПИСЬ ГРАФИКА РИСУНОК"
+		},
+		{
+			"id": 4,
+			"img": "./images/catalog_7.png",
+			"imgSize": "normal",
+			"title": "Гравюры"
+		},
+		{
+			"id": 3,
+			"img": "./images/catalog_3.png",
+			"imgSize": "horizontal",
+			"title": "МЕБЕЛЬ И ЗЕРКАЛА"
+		},
+		{
+			"id": 5,
+			"img": "./images/catalog_10.png",
+			"imgSize": "normal",
+			"title": "Бронза"
+		},
+		{
+			"id": 6,
+			"img": "./images/catalog_4.png",
+			"imgSize": "normal",
+			"title": "Винный антиквариат"
+		},
+		{
+			"id": 7,
+			"img": "./images/catalog_8.png",
+			"imgSize": "normal",
+			"title": "ПРЕДМЕТЫ АНТИКВАРНОГО ДЕКОРА"
+		},
+		{
+			"id": 8,
+			"img": "./images/catalog_5.png",
+			"imgSize": "normal",
+			"title": "ИСКУССТВО ВОСТОКА"
+		},
+		{
+			"id": 9,
+			"img": "./images/catalog_9.png",
+			"imgSize": "normal",
+			"title": "ФАРФОР СТЕКЛО"
+		},
+		{
+			"id": 10,
+			"img": "./images/catalog_6.png",
+			"imgSize": "normal",
+			"title": "Серебро"
+		}
+	],
+	"aboutData": [
+		{
+			"id": 1,
+			"img": "./images/about_img_1.png",
+			"title": "Золотой кувшин рюдрика"
+		},
+		{
+			"id": 2,
+			"img": "./images/about_img_2.png",
+			"title": "Золотой кувшин рюдрика"
+		},
+		{
+			"id": 3,
+			"img": "./images/about_img_3.png",
+			"title": "Золотой кувшин рюдрика"
+		},
+		{
+			"id": 4,
+			"img": "./images/about_img_4.png",
+			"title": "Золотой кувшин рюдрика"
+		},
+		{
+			"id": 5,
+			"img": "./images/about_img_5.png",
+			"title": "Золотой кувшин рюдрика"
+		},
+		{
+			"id": 6,
+			"img": "./images/about_img_6.png",
+			"title": "Золотой кувшин рюдрика"
+		},
+		{
+			"id": 7,
+			"img": "./images/about_img.png",
+			"title": "Золотой кувшин рюдрика"
+		}
+	],
+	"newProducts": [
+		{
+			"id": 1,
+			"img": "./images/new_product_1.png",
+			"suptitle": "ЖИВОПИСЬ ГРАФИКА РИСУНОК",
+			"title": "Карандашный портрет молодой женщины в профиль",
+			"price": "17 000"
+		},
+		{
+			"id": 2,
+			"img": "./images/new_product_2.png",
+			"suptitle": "ЖИВОПИСЬ ГРАФИКА РИСУНОК",
+			"title": "Акварель \"Ленинградские модники\"",
+			"price": "7 000"
+		},
+		{
+			"id": 3,
+			"img": "./images/new_product_3.png",
+			"suptitle": "Предметы антикварного декора",
+			"title": "Парные бронзовые канделябры в стиле классицизм.",
+			"price": "700 000"
+		},
+		{
+			"id": 4,
+			"img": "./images/new_product_4.png",
+			"suptitle": "Фарфор стекло",
+			"title": "Винтажный набор для воды",
+			"price": "12 000"
+		}
+	],
+	"news": [
+		{
+			"id": 1,
+			"img": "./images/news_1.png",
+			"date": "03.06.2014",
+			"title": "открытие антикварного салона ANTIKDECOR",
+			"description": "Приглашаем всех в гости! Салон работает с понедельника по... "
+		},
+		{
+			"id": 2,
+			"img": "./images/news_1.png",
+			"date": "03.06.2014",
+			"title": "открытие антикварного салона ANTIKDECOR",
+			"description": "Приглашаем всех в гости! Салон работает с понедельника по... "
+		},
+		{
+			"id": 3,
+			"img": "./images/news_1.png",
+			"date": "03.06.2014",
+			"title": "открытие антикварного салона ANTIKDECOR",
+			"description": "Приглашаем всех в гости! Салон работает с понедельника по... "
+		},
+		{
+			"id": 4,
+			"img": "./images/news_1.png",
+			"date": "03.06.2014",
+			"title": "открытие антикварного салона ANTIKDECOR",
+			"description": "Приглашаем всех в гости! Салон работает с понедельника по... "
+		}
+	],
+	"video": [
+		{ "id": 1, "img": "./images/youtube_logo.png" },
+		{ "id": 2, "img": "./images/youtube_logo.png" },
+		{ "id": 3, "img": "./images/youtube_logo.png" },
+		{ "id": 4, "img": "./images/youtube_logo.png" }
+	],
+	"reviews": [
+		{ "id": 1, "img": "./images/yandex_logo.png" },
+		{ "id": 2, "img": "./images/yandex_logo.png" },
+		{ "id": 3, "img": "./images/yandex_logo.png" },
+		{ "id": 4, "img": "./images/yandex_logo.png" }
+	]
+}

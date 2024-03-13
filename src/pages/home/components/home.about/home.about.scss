@@ -2,6 +2,7 @@
 	margin-bottom: 8rem;
 
 	.home-about__content {
+		padding: 0 2rem;
 		p {
 			font-size: 1.2rem;
 			line-height: 2.04rem;
@@ -27,33 +28,122 @@
 	}
 
 	.home-about__carousel {
-		figure {
-			position: relative;
-			width: 249px;
-			margin: 0 auto;
+		.swiper-wrapper {
+			display: flex;
+			align-items: center;
 
-			img {
-				width: 100%;
+			.swiper-slide {
+				max-width: 249px;
+				height: 361px;
+				figure {
+					height: 100%;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+
+					figcaption {
+						position: absolute;
+
+						color: #fff;
+						bottom: 2rem;
+						left: 40%;
+						transform: translateX(-35%);
+
+						font-size: 1.2rem;
+						line-height: 1.534rem;
+						font-weight: 800;
+						text-align: center;
+						text-transform: uppercase;
+					}
+				}
 			}
 
-			figcaption {
-				position: absolute;
-
-				color: #fff;
-				bottom: 2rem;
-				left: 40%;
-				transform: translateX(-35%);
-
-				font-size: 1.2rem;
-				line-height: 1.534rem;
-				font-weight: 800;
-				text-align: center;
-				text-transform: uppercase;
+			.swiper-slide-next,
+			.swiper-slide-prev {
+				height: 233px !important;
 			}
 		}
 
 		.swiper-btns {
 			display: none;
+		}
+	}
+
+	@media (min-width: 640px) {
+		.home-about__carousel {
+			.swiper-slide {
+				max-width: 300px !important;
+			}
+			.swiper-slide-next,
+			.swiper-slide-prev {
+				height: 280px !important;
+			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		.home-about__content {
+			padding: 0 3rem;
+			h2 {
+				margin-bottom: 3rem;
+			}
+		}
+		.home-about__carousel {
+			.swiper-slide {
+				max-width: 450px !important;
+			}
+			.swiper-slide-next,
+			.swiper-slide-prev {
+				height: 280px !important;
+			}
+		}
+	}
+
+	@media (min-width: 920px) {
+		display: flex;
+		justify-content: space-between;
+		.home-about__content {
+			flex: 1;
+			max-width: 626px;
+		}
+		.home-about__carousel {
+			flex: 1;
+			max-width: 424px;
+			.swiper-slide {
+				max-width: 352px !important;
+				height: 510px !important;
+			}
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.home-about__carousel {
+			.swiper-slide:hover {
+				cursor: grab;
+			}
+			.swiper-btns {
+				display: flex;
+				justify-content: flex-end;
+				align-items: baseline;
+				gap: 1.8rem;
+				margin-right: 7.2rem;
+				margin-top: 3rem;
+
+				.prev-btn,
+				.next-btn {
+					.arrow {
+						transition: all 150ms linear;
+					}
+					&:hover {
+						cursor: pointer;
+						.arrow {
+							fill: #ea5544;
+						}
+					}
+				}
+			}
 		}
 	}
 }
