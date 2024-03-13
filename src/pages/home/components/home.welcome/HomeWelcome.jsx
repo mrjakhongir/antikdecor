@@ -35,37 +35,36 @@ function HomeWelcome() {
 					</SwiperSlide>
 				))}
 			</Swiper>
-			<div className='home-welcome__pagination'>
-				<div className='pagination_small'></div>
-				<div className='pagination_large'>
-					<div className='pagination_prev_btn'>
-						<svg
-							width='10'
-							height='10'
-							viewBox='0 0 10 10'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'>
-							<path
+
+			<div className='pagination_small'></div>
+			<div className='pagination_large'>
+				<div className='pagination_prev_btn'>
+					<svg
+						width='10'
+						height='10'
+						viewBox='0 0 10 10'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'>
+						<path
 							className='welcome__polygon'
-								d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
-								stroke='white'
-							/>
-						</svg>
-					</div>
-					<div className='pagination_next_btn'>
-						<svg
-							width='10'
-							height='10'
-							viewBox='0 0 10 10'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'>
-							<path
+							d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
+							stroke='white'
+						/>
+					</svg>
+				</div>
+				<div className='pagination_next_btn'>
+					<svg
+						width='10'
+						height='10'
+						viewBox='0 0 10 10'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'>
+						<path
 							className='welcome__polygon'
-								d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
-								stroke='white'
-							/>
-						</svg>
-					</div>
+							d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
+							stroke='white'
+						/>
+					</svg>
 				</div>
 			</div>
 		</div>

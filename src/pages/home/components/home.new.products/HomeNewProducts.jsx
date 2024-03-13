@@ -22,6 +22,9 @@ function HomeNewProducts() {
 						640: {
 							spaceBetween: 15,
 						},
+						1100: {
+							spaceBetween: 24,
+						},
 					}}>
 					{newProducts.map((el) => (
 						<SwiperSlide key={el.id}>

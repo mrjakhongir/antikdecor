@@ -62,8 +62,9 @@
 
 @media (min-width: 1024px) {
 	.header__nav {
+		padding: 2.3rem 4rem;
 		.nav__links {
-			gap: 4rem;
+			gap: 3rem;
 
 			a {
 				transition: all 150ms linear;
@@ -84,6 +85,15 @@
 					color: #ea5544;
 				}
 			}
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.header__nav {
+		padding: 2.3rem 7.2rem;
+		.nav__links {
+			gap: 6rem;
 		}
 	}
 }

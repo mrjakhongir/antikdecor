@@ -81,4 +81,16 @@
 			}
 		}
 	}
+
+	@media (min-width: 1024px) {
+		.header__top {
+			padding: 2.9rem 4rem;
+		}
+	}
+
+	@media (min-width: 1440px) {
+		.header__top {
+			padding: 2.9rem 7.2rem;
+		}
+	}
 }

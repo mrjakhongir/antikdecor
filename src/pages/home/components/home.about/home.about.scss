@@ -119,6 +119,19 @@
 	}
 
 	@media (min-width: 1024px) {
+		.home-about__content {
+			padding: 0 4rem;
+			button {
+				border: 1px solid #ea5544;
+				transition: all 150ms linear;
+
+				&:hover {
+					cursor: pointer;
+					background-color: #fff;
+					color: #ea5544;
+				}
+			}
+		}
 		.home-about__carousel {
 			.swiper-slide:hover {
 				cursor: grab;
