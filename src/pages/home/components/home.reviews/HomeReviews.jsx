@@ -10,31 +10,38 @@ const reviews = data.reviews;
 function HomeReviews() {
 	return (
 		<div className='home-reviews'>
-			<div>
-				<h2 className='subtitle'>Отзывы</h2>
-			</div>
-			<div className='home-reviews__carousel'>
-				<Swiper
-					centeredSlides={true}
-					slidesPerView='auto'
-					spaceBetween={10}
-					loop={true}
-					breakpoints={{
-						640: {
-							spaceBetween: 15,
-						},
-					}}>
-					{reviews.map((el) => (
-						<SwiperSlide>
-							{
-								<div className='home-reviews__card'>
-									<img src={el.img} alt='yandex' />
-								</div>
-							}
-						</SwiperSlide>
-					))}
-				</Swiper>
-			</div>
+			<section className='section'>
+				<div className='container'>
+					<h2 className='subtitle'>Отзывы</h2>
+
+					<Swiper
+						slidesPerView={1}
+						spaceBetween={10}
+						loop={true}
+						breakpoints={{
+							768: {
+								slidesPerView: 2,
+							},
+							1024: {
+								slidesPerView: 3,
+								spaceBetween: 15,
+							},
+							1440: {
+								slidesPerView: 4,
+							},
+						}}>
+						{reviews.map((el) => (
+							<SwiperSlide>
+								{
+									<div className='home-reviews__card'>
+										<img src={el.img} alt='yandex' />
+									</div>
+								}
+							</SwiperSlide>
+						))}
+					</Swiper>
+				</div>
+			</section>
 		</div>
 	);
 }

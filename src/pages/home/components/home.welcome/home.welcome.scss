@@ -1,25 +1,15 @@
 .home-welcome {
-	position: relative;
 	margin-bottom: 8rem;
-	height: 688px;
 
 	.swiper {
-		height: 100%;
+		position: relative;
 		.swiper-slide {
-			position: relative;
-			> img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-			.home-welcome__content {
-				width: 100%;
-				height: 100%;
-				padding: 30.5rem 2rem 17.1rem;
-				position: absolute;
-				top: 0;
-				left: 0;
+			background-repeat: no-repeat;
+			background-position: 34%;
+			background-size: cover;
+			padding: 33.5rem 2rem 3.5rem;
 
+			.home-welcome__content {
 				h1 {
 					font-size: 2.8rem;
 					line-height: 3.578rem;
@@ -48,44 +38,41 @@
 					padding: 1.9rem 4.55rem;
 					border: none;
 					background-color: #ea5544;
+					margin-bottom: 13.3rem;
 				}
 			}
 		}
-	}
+		.pagination_small {
+			position: absolute;
+			bottom: 3.5rem;
+			left: 50%;
+			transform: translate(-50%);
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			z-index: 2;
 
-	.pagination_small {
-		position: absolute;
-		bottom: 3.6rem;
-		left: 50%;
-		transform: translateX(-50%);
-		z-index: 2;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
+			.swiper-pagination-bullet {
+				border-radius: 0px;
+				width: 41px;
+				height: 2px;
+				background-color: #fff;
+			}
 
-		.swiper-pagination-bullet {
-			border-radius: 0px;
-			width: 41px;
-			height: 2px;
-			background-color: #fff;
+			.swiper-pagination-bullet-active {
+				background-color: #ea5544;
+			}
 		}
-
-		.swiper-pagination-bullet-active {
-			background-color: #ea5544;
+		.pagination_large {
+			display: none;
 		}
-	}
-
-	.pagination_large {
-		display: none;
 	}
 
 	@media (min-width: 768px) {
-		height: 520px;
 		.swiper {
 			.swiper-slide {
+				padding: 10.5rem 3rem 10.1rem;
 				.home-welcome__content {
-					padding: 10.5rem 3rem 10.1rem;
-
 					h1 {
 						font-size: 3.4rem;
 						line-height: 3.8rem;
@@ -99,54 +86,56 @@
 					}
 				}
 			}
-		}
 
-		.pagination_small {
-			display: none;
-		}
+			.pagination_small {
+				display: none;
+			}
 
-		.pagination_large {
-			position: absolute;
-			bottom: 2.6rem;
-			right: 3rem;
-			display: flex;
-			gap: 2rem;
-
-			z-index: 2;
-
-			.pagination_prev_btn,
-			.pagination_next_btn {
-				width: 40px;
-				height: 40px;
-				border: 1px solid #fff;
-				border-radius: 5px;
+			.pagination_large {
+				position: absolute;
+				bottom: 2.6rem;
+				right: 3rem;
 				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
+				gap: 2rem;
 
-			.pagination_next_btn {
-				transform: rotate(180deg);
-			}
+				z-index: 2;
 
-			.pagination_next_btn:active,
-			.pagination_prev_btn:active {
-				border-color: #ea5544;
+				.pagination_prev_btn,
+				.pagination_next_btn {
+					width: 40px;
+					height: 40px;
+					border: 1px solid #fff;
+					border-radius: 5px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
 
-				.welcome__polygon {
-					stroke: #ea5544;
+				.pagination_next_btn {
+					transform: rotate(180deg);
+				}
+
+				.pagination_next_btn:active,
+				.pagination_prev_btn:active {
+					border-color: #ea5544;
+
+					.welcome__polygon {
+						stroke: #ea5544;
+					}
 				}
 			}
 		}
 	}
 
 	@media (min-width: 1024px) {
-		height: 600px;
 		margin-bottom: 10rem;
 		.swiper {
 			.swiper-slide {
+				padding-left: 4rem;
+				padding-right: 4rem;
 				.home-welcome__content {
-					padding-left: 4rem;
+					max-width: 1296px;
+					margin: 0 auto;
 					button {
 						transition: all 150ms linear;
 
@@ -158,42 +147,46 @@
 					}
 				}
 			}
-		}
 
-		.pagination_large {
-			right: 4rem;
-			bottom: 3.6rem;
-			.pagination_prev_btn,
-			.pagination_next_btn {
-				width: 59px;
-				height: 54px;
-				transition: all 100ms linear;
-				border-width: 2px;
-			}
-
-			.pagination_next_btn:hover,
-			.pagination_prev_btn:hover {
-				border-color: #ea5544;
-				cursor: pointer;
-
-				.welcome__polygon {
-					stroke: #ea5544;
+			.pagination_large {
+				right: 4rem;
+				bottom: 3.6rem;
+				.pagination_prev_btn,
+				.pagination_next_btn {
+					width: 59px;
+					height: 54px;
+					transition: all 100ms linear;
+					border-width: 2px;
 				}
+
+				.pagination_next_btn:hover,
+				.pagination_prev_btn:hover {
+					border-color: #ea5544;
+					cursor: pointer;
+
+					.welcome__polygon {
+						stroke: #ea5544;
+					}
+				}
+			}
+		}
+	}
+
+	@media (min-width: 1376px) {
+		.swiper {
+			.pagination_large {
+				right: calc((100vw - 129.6rem) / 2 + 1rem);
+				bottom: 5.4rem;
 			}
 		}
 	}
 
 	@media (min-width: 1440px) {
 		margin-bottom: 14rem;
-		height: 668px;
 		.swiper {
 			.swiper-slide {
-				> img {
-					width: 100%;
-				}
+				padding: 11.3rem 7.2rem 3.2rem;
 				.home-welcome__content {
-					padding: 11.3rem 7.2rem 3.2rem;
-
 					h1 {
 						font-size: 3.5rem;
 						line-height: 4.473rem;
@@ -214,11 +207,6 @@
 					}
 				}
 			}
-		}
-
-		.pagination_large {
-			right: 7.2rem;
-			bottom: 5.4rem;
 		}
 	}
 }

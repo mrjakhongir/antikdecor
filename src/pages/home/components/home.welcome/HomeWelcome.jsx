@@ -3,8 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 
-import polygonLeft from '../../../../assets/svg/polygon_left.svg';
-
 import data from '../../../../data.json';
 const welcome = data.welcome;
 
@@ -15,16 +13,14 @@ function HomeWelcome() {
 				modules={[Pagination, Navigation]}
 				centeredSlides={true}
 				slidesPerView={1}
-				spaceBetween={10}
-				pagination={{ el: '.pagination_small', clickable: true }}
+				pagination={{ el: '.pagination_small' }}
 				loop={true}
 				navigation={{
 					prevEl: '.pagination_prev_btn',
 					nextEl: '.pagination_next_btn',
 				}}>
 				{welcome.map((el) => (
-					<SwiperSlide>
-						<img src={el.img} alt='' />
+					<SwiperSlide style={{ backgroundImage: `url(${el.img})` }}>
 						<div className='home-welcome__content'>
 							<h1>Первый в РосСии гравюрный кабинет</h1>
 							<p>
@@ -34,39 +30,38 @@ function HomeWelcome() {
 						</div>
 					</SwiperSlide>
 				))}
+				<div className='pagination_small'></div>
+				<div className='pagination_large'>
+					<div className='pagination_prev_btn'>
+						<svg
+							width='10'
+							height='10'
+							viewBox='0 0 10 10'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'>
+							<path
+								className='welcome__polygon'
+								d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
+								stroke='white'
+							/>
+						</svg>
+					</div>
+					<div className='pagination_next_btn'>
+						<svg
+							width='10'
+							height='10'
+							viewBox='0 0 10 10'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'>
+							<path
+								className='welcome__polygon'
+								d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
+								stroke='white'
+							/>
+						</svg>
+					</div>
+				</div>
 			</Swiper>
-
-			<div className='pagination_small'></div>
-			<div className='pagination_large'>
-				<div className='pagination_prev_btn'>
-					<svg
-						width='10'
-						height='10'
-						viewBox='0 0 10 10'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'>
-						<path
-							className='welcome__polygon'
-							d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
-							stroke='white'
-						/>
-					</svg>
-				</div>
-				<div className='pagination_next_btn'>
-					<svg
-						width='10'
-						height='10'
-						viewBox='0 0 10 10'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'>
-						<path
-							className='welcome__polygon'
-							d='M8.29995 1.40204L1.6228 5.25709L8.29995 9.11214L8.29995 1.40204Z'
-							stroke='white'
-						/>
-					</svg>
-				</div>
-			</div>
 		</div>
 	);
 }

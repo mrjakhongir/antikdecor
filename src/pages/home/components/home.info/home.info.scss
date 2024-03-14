@@ -1,6 +1,9 @@
 .home-info {
 	margin-bottom: 8rem;
-	padding: 0 2rem;
+
+	.section {
+		padding: 0 2rem;
+	}
 
 	.home-info__cards_wrapper {
 		display: flex;
@@ -42,7 +45,9 @@
 	}
 
 	@media (min-width: 768px) {
-		padding: 0 3rem;
+		.section {
+			padding: 0 3rem;
+		}
 
 		.home-info__cards_wrapper {
 			display: grid;
@@ -58,7 +63,9 @@
 
 	@media (min-width: 1024px) {
 		margin-bottom: 10rem;
-		padding: 0 4rem;
+		.section {
+			padding: 0 4rem;
+		}
 	}
 
 	@media (min-width: 1140px) {
@@ -70,6 +77,5 @@
 
 	@media (min-width: 1440px) {
 		margin-bottom: 14rem;
-		padding: 0 7.2rem;
 	}
 }

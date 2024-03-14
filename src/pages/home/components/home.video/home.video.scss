@@ -1,16 +1,13 @@
 .home-video {
 	margin-bottom: 8rem;
 
-	div:first-child {
+	.section {
 		padding: 0 2rem;
 	}
 
-	.swiper-wrapper {
-		display: flex;
-		align-items: center;
-
+	.swiper {
+		max-width: 335px;
 		.swiper-slide {
-			max-width: 335px;
 			height: 424px;
 			.home-video__card {
 				background-color: #fff;
@@ -31,31 +28,33 @@
 	}
 
 	@media (min-width: 768px) {
-		div:first-child {
+		.section {
 			padding: 0 3rem;
 		}
-		.home-video__carousel {
-			padding: 0 3rem;
+
+		.swiper {
+			max-width: 680px;
 		}
 	}
 
 	@media (min-width: 1024px) {
 		margin-bottom: 10rem;
-		div:first-child {
+		.section {
 			padding: 0 4rem;
 		}
-		.home-video__carousel {
-			padding: 0 4rem;
+
+		.swiper {
+			max-width: 1035px;
+			.swiper-slide:hover {
+				cursor: grab;
+			}
 		}
 	}
 
 	@media (min-width: 1440px) {
 		margin-bottom: 14rem;
-		div:first-child {
-			padding: 0 7.2rem;
-		}
-		.home-video__carousel {
-			padding: 0 7.2rem;
+		.swiper {
+			max-width: 1296px;
 		}
 	}
 }

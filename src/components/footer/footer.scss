@@ -1,6 +1,9 @@
 .footer {
 	background-color: #242424;
-	padding: 4rem 2rem 2rem;
+
+	section {
+		padding: 4rem 2rem 2rem;
+	}
 
 	.footer-nav {
 		display: flex;
@@ -82,7 +85,9 @@
 	}
 
 	@media (min-width: 768px) {
-		padding: 4rem 3rem 2rem;
+		section {
+			padding: 4rem 3rem 2rem;
+		}
 		.footer-nav {
 			padding: 0;
 			.footer-catalog {
@@ -92,7 +97,9 @@
 	}
 
 	@media (min-width: 1024px) {
-		padding: 4rem 4rem;
+		section {
+			padding: 4rem 4rem;
+		}
 		.footer-nav {
 			margin-bottom: 3rem;
 			a {
@@ -109,6 +116,9 @@
 				justify-content: space-between;
 				gap: 7rem;
 				align-items: flex-end;
+				span {
+					display: inline;
+				}
 			}
 		}
 		> img {
@@ -123,7 +133,6 @@
 	}
 
 	@media (min-width: 1440px) {
-		padding: 6rem 7.2rem;
 		.footer-nav {
 			margin-bottom: 5rem;
 		}

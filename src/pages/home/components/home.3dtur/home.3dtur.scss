@@ -1,6 +1,8 @@
 .home-3dtur {
 	margin-bottom: 8rem;
-	padding: 0 2rem;
+	.section {
+		padding: 0 2rem;
+	}
 
 	.home-3dtur__card {
 		padding: 16.9rem 5rem;
@@ -30,12 +32,16 @@
 	}
 
 	@media (min-width: 768px) {
-		padding: 0 3rem;
+		.section {
+			padding: 0 3rem;
+		}
 	}
 
 	@media (min-width: 1024px) {
 		margin-bottom: 10rem;
-		padding: 0 4rem;
+		.section {
+			padding: 0 4rem;
+		}
 		.home-3dtur__card {
 			img {
 				width: 109px;
@@ -51,6 +57,5 @@
 
 	@media (min-width: 1440px) {
 		margin-bottom: 14rem;
-		padding: 0 7.2rem;
 	}
 }

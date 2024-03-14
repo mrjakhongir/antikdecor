@@ -57,3 +57,48 @@ a {
 	color: #fff;
 	text-decoration: none;
 }
+
+.section {
+	width: 100%;
+	max-width: 375px;
+	margin: 0 auto;
+}
+
+.container {
+	width: 100%;
+	max-width: 335px;
+	margin: 0 auto;
+}
+
+@media (min-width: 375px) {
+	.section {
+		width: 100%;
+		max-width: 768px;
+		margin: 0 auto;
+	}
+
+	.container {
+		width: 100%;
+		max-width: 708px;
+		margin: 0 auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.section {
+		max-width: 1024px;
+	}
+
+	.container {
+		max-width: 944px;
+	}
+}
+@media (min-width: 1024px) {
+	.section {
+		max-width: 1440px;
+	}
+
+	.container {
+		max-width: 1296px;
+	}
+}

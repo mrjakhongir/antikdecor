@@ -34,16 +34,20 @@ const info = [
 function HomeInfo() {
 	return (
 		<div className='home-info'>
-			<h2 className='subtitle'>Почему нас выбирают?</h2>
-			<div className='home-info__cards_wrapper'>
-				{info.map((inf) => (
-					<div className='home-info__card'>
-						<img src={inf.img} alt='years of experience' />
-						<h3>{inf.cardTitle}</h3>
-						<p>{inf.description}</p>
+			<section className='section'>
+				<div className='container'>
+					<h2 className='subtitle'>Почему нас выбирают?</h2>
+					<div className='home-info__cards_wrapper'>
+						{info.map((inf) => (
+							<div className='home-info__card'>
+								<img src={inf.img} alt='years of experience' />
+								<h3>{inf.cardTitle}</h3>
+								<p>{inf.description}</p>
+							</div>
+						))}
 					</div>
-				))}
-			</div>
+				</div>
+			</section>
 		</div>
 	);
 }

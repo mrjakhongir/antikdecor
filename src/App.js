@@ -8,10 +8,11 @@ import News from './pages/news/News';
 import Products from './pages/products/Products';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import NewsDetail from './pages/news/newsDetail/NewsDetail';
 
 function App() {
 	return (
-		<div className='section'>
+		<>
 			<Header />
 			<Routes>
 				<Route path='/' element={<Home />} />
@@ -20,10 +21,11 @@ function App() {
 				<Route path='/catalog' element={<Catalog />} />
 				<Route path='/contacts' element={<Contacts />} />
 				<Route path='/news' element={<News />} />
-				<Route path='/news' element={<Products />} />
+				<Route path='/news/:id' element={<NewsDetail />} />
+				<Route path='/products' element={<Products />} />
 			</Routes>
 			<Footer />
-		</div>
+		</>
 	);
 }
 

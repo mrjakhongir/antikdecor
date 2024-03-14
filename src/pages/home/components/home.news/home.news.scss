@@ -1,6 +1,4 @@
-.news {
-	padding-top: 6rem;
-
+.home-news {
 	.section {
 		padding: 0 2rem;
 	}
@@ -10,9 +8,7 @@
 			padding: 0 3rem;
 		}
 	}
-  
 	@media (min-width: 1024px) {
-		padding-top: 10rem;
 		.section {
 			padding: 0 4rem;
 		}
