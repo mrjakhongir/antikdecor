@@ -10,7 +10,7 @@ function Navbar() {
 						<div className='nav__links'>
 							<Link to='#'>Главная</Link>
 							<Link to='#'>Каталог</Link>
-							<Link to='#'>Новости</Link>
+							<Link to='/news'>Новости</Link>
 							<Link to='#'>О нас</Link>
 							<Link to='#'>Контакты</Link>
 						</div>
