@@ -1,15 +1,14 @@
-import './home.reviews.scss';
-import yandexImg from '../../../../assets/svg/yandex.svg';
+import './reviews.carousel.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import data from '../../../../data.json';
+import data from '../../data.json';
 const reviews = data.reviews;
 
-function HomeReviews() {
+function ReviewsCarousel() {
 	return (
-		<div className='home-reviews'>
+		<div className='reviews-carousel'>
 			<section className='section'>
 				<div className='container'>
 					<h2 className='subtitle'>Отзывы</h2>
@@ -33,7 +32,7 @@ function HomeReviews() {
 						{reviews.map((el) => (
 							<SwiperSlide>
 								{
-									<div className='home-reviews__card'>
+									<div className='reviews-carousel__card'>
 										<img src={el.img} alt='yandex' />
 									</div>
 								}
@@ -46,4 +45,4 @@ function HomeReviews() {
 	);
 }
 
-export default HomeReviews;
+export default ReviewsCarousel;

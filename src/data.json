@@ -92,7 +92,8 @@
 		{
 			"id": 1,
 			"img": "./images/about_img_1.png",
-			"title": "Золотой кувшин рюдрика"
+			"title": "Золотой кувшин рюдрика",
+			"imgSize": "horizontal"
 		},
 		{
 			"id": 2,
@@ -117,7 +118,8 @@
 		{
 			"id": 6,
 			"img": "./images/about_img_6.png",
-			"title": "Золотой кувшин рюдрика"
+			"title": "Золотой кувшин рюдрика",
+			"imgSize": "horizontal"
 		},
 		{
 			"id": 7,

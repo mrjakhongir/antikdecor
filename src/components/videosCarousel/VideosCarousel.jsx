@@ -1,14 +1,14 @@
-import './home.video.scss';
+import './videos.carousel.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import data from '../../../../data.json';
+import data from '../../data.json';
 const videos = data.video;
 
-function HomeVideo() {
+function VideosCarousel() {
 	return (
-		<div className='home-video'>
+		<div className='videos-carousel'>
 			<section className='section'>
 				<div className='container'>
 					<h2 className='subtitle'>Видео</h2>
@@ -31,7 +31,7 @@ function HomeVideo() {
 						{videos.map((el) => (
 							<SwiperSlide>
 								{
-									<div className='home-video__card'>
+									<div className='videos-carousel__card'>
 										<img src={el.img} alt='' />
 									</div>
 								}
@@ -44,4 +44,4 @@ function HomeVideo() {
 	);
 }
 
-export default HomeVideo;
+export default VideosCarousel;

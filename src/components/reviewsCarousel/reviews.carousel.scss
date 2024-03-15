@@ -1,14 +1,14 @@
-.home-reviews {
+.reviews-carousel {
 	margin-bottom: 8rem;
 	.section {
 		padding: 0 2rem;
 	}
 
 	.swiper {
-		max-width: 335px;
+		max-width: 420px;
 		.swiper-slide {
 			height: 424px;
-			.home-reviews__card {
+			.reviews-carousel__card {
 				background-color: #fff;
 				height: 100%;
 				padding: 19.6rem 10.5rem;
@@ -17,6 +17,9 @@
 					0px 23px 14px 0px rgba(212, 212, 212, 0.05),
 					0px 41px 16px 0px rgba(212, 212, 212, 0.01),
 					0px 64px 18px 0px rgba(212, 212, 212, 0);
+				display: flex;
+				align-items: center;
+				justify-content: center;
 
 				img {
 					width: 125px;
@@ -31,7 +34,7 @@
 			padding: 0 3rem;
 		}
 		.swiper {
-			max-width: 680px;
+			max-width: 880px;
 		}
 	}
 
@@ -41,7 +44,7 @@
 			padding: 0 4rem;
 		}
 		.swiper {
-			max-width: 1035px;
+			max-width: 1165px;
 			.swiper-slide:hover {
 				cursor: grab;
 			}

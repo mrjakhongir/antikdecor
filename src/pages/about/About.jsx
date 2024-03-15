@@ -1,5 +1,11 @@
-import { Swiper } from 'react/swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import './about.scss';
+
+import data from '../../data.json';
+import VideosCarousel from '../../components/videosCarousel/VideosCarousel';
+import ReviewsCarousel from '../../components/reviewsCarousel/ReviewsCarousel';
+import ContactUs from '../../components/contactUs/ContactUs';
+const aboutData = data.aboutData;
 
 function About() {
 	return (
@@ -26,6 +32,7 @@ function About() {
 							предназначенные стать подарками на любой вкус.
 						</p>
 					</div>
+
 					<div className='about__info'>
 						<h2 className='subtitle'>Как это работает?</h2>
 						<p>
@@ -38,6 +45,7 @@ function About() {
 							<span>абсолютно бесплатно!!!</span>
 						</p>
 					</div>
+
 					<div className='about__info-steps'>
 						<div className='info-step'>
 							<h3>01</h3>
@@ -69,9 +77,47 @@ function About() {
 							</p>
 						</div>
 					</div>
-					<Swiper></Swiper>
+
+					<div className='about__info_additional'>
+						<p>
+							Данная услуга оказывается в <span>Москве</span> и{' '}
+							<span>Санкт-Петербурге</span>
+							после заключения договора на оказание услуг. Заказчик оплачивает
+							транспортные и иные расходы, связанные с транспортировкой
+							крупногобаритной мебели и предметов интерьера
+						</p>
+					</div>
+
+					<Swiper
+						className='mySwiper'
+						loop={true}
+						centeredSlides={true}
+						slidesPerView='auto'
+						spaceBetween={10}
+						breakpoints={{
+							768: {
+								spaceBetween: 15,
+							},
+						}}>
+						{aboutData.map((el) => (
+							<SwiperSlide key={el.id}>
+								<img src={el.img} alt={el.title} />
+							</SwiperSlide>
+						))}
+					</Swiper>
+
+					<div className='about__gallery'>
+						{aboutData.slice(0, 6).map((el) => (
+							<div className={el.imgSize}>
+								<img key={el.id} src={el.img} alt={el.title} />
+							</div>
+						))}
+					</div>
 				</div>
 			</section>
+			<VideosCarousel />
+			<ReviewsCarousel />
+			<ContactUs />
 		</div>
 	);
 }
