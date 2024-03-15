@@ -8,7 +8,7 @@ function Navbar() {
 				<div className='container'>
 					<div className='header__nav_inner'>
 						<div className='nav__links'>
-							<Link to='#'>Главная</Link>
+							<Link to='/'>Главная</Link>
 							<Link to='#'>Каталог</Link>
 							<Link to='/news'>Новости</Link>
 							<Link to='/about'>О нас</Link>

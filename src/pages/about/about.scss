@@ -94,7 +94,12 @@
 		}
 
 		.about__info-steps {
-			grid-template-columns: repeat(auto-fit, minmax(306px, 1fr));
+			grid-template-columns: repeat(2, minmax(306px, 1fr));
+			justify-content: center;
+
+			.info-step {
+				max-width: 100%;
+			}
 		}
 
 		.mySwiper {
@@ -181,6 +186,13 @@
 	@media (min-width: 1440px) {
 		.about__text {
 			margin-bottom: 13.2rem;
+		}
+		
+		.about__info-steps {
+			grid-template-columns: repeat(4, minmax(306px, 1fr));
+			.info-step {
+				max-width: 306px;
+			}
 		}
 
 		.about__info_additional {
