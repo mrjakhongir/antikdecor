@@ -12,7 +12,7 @@ function Navbar() {
 							<Link to='#'>Каталог</Link>
 							<Link to='/news'>Новости</Link>
 							<Link to='/about'>О нас</Link>
-							<Link to='#'>Контакты</Link>
+							<Link to='/contacts'>Контакты</Link>
 						</div>
 						<div className='nav__filter'>
 							<div>
