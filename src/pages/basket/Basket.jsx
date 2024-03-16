@@ -40,8 +40,11 @@ function Basket() {
 					</div>
 					<div className='products__sum'>
 						<div>
-							<span>Сумма заказа:</span>
-							<span>17 000 ₽</span>
+							<div className='products__sum_info'>
+								<span>Сумма заказа:</span>
+								<span className='total__price'>17 000 ₽</span>
+							</div>
+							<button>Оформить заказ</button>
 						</div>
 						<button>Оформить заказ</button>
 					</div>
