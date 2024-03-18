@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import data from '../../../../data.json';
+import CatalogGrid from '../../../../components/catalogGrid/CatalogGrid';
 const catalog = data.catalog;
 
 function HomeCatalog() {
@@ -39,12 +40,7 @@ function HomeCatalog() {
 					</Swiper>
 
 					<div className='catalog-grid__large'>
-						{catalog.map((el) => (
-							<figure className={`${el.imgSize}`}>
-								<img src={el.img} alt='case clock' />
-								<figcaption>{el.title}</figcaption>
-							</figure>
-						))}
+						<CatalogGrid />
 					</div>
 				</div>
 			</section>
