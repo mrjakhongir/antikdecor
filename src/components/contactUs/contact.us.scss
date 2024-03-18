@@ -115,6 +115,18 @@
 		.section {
 			padding: 0 4rem;
 		}
+		.home-contacts__left {
+			form {
+				button {
+					transition: all 150ms linear;
+					&:hover {
+						cursor: pointer;
+						background-color: transparent;
+						color: #ea5544;
+					}
+				}
+			}
+		}
 	}
 
 	@media (min-width: 1100px) {
@@ -136,8 +148,6 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
-
-						transition: all 150ms linear;
 
 						&:hover {
 							cursor: pointer;
