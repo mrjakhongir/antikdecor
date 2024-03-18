@@ -76,6 +76,10 @@
 		justify-content: center;
 		gap: 2rem;
 		margin-bottom: 8rem;
+
+		a {
+			cursor: default;
+		}
 	}
 
 	@media (min-width: 768px) {

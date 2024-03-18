@@ -5,6 +5,7 @@ import data from '../../data.json';
 import ProductCard from '../../components/productsCard/ProductCard';
 import Accordion from '../../components/accordion/Accordion';
 import ContactUs from '../../components/contactUs/ContactUs';
+import { Link } from 'react-router-dom';
 const clocks = data.clocks;
 
 const accordions = [
@@ -46,7 +47,9 @@ function Products() {
 						</div>
 						<div className='products__grid'>
 							{clocks.map((product) => (
-								<ProductCard key={product.id} el={product} />
+								<Link to={`/products/${product.id}`}>
+									<ProductCard key={product.id} el={product} />
+								</Link>
 							))}
 						</div>
 					</div>

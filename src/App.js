@@ -9,6 +9,7 @@ import Products from './pages/products/Products';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import NewsDetail from './pages/news/newsDetail/NewsDetail';
+import ProductDetails from './pages/products/productDetails/productDetails';
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path='/news' element={<News />} />
 				<Route path='/news/:id' element={<NewsDetail />} />
 				<Route path='/products' element={<Products />} />
+				<Route path='/products/:id' element={<ProductDetails />} />
 			</Routes>
 			<Footer />
 		</>
