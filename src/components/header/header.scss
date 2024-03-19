@@ -1,5 +1,6 @@
 .header {
 	background-color: #333;
+	position: relative;
 
 	.section {
 		padding: 2.9rem 2rem;
@@ -14,19 +15,6 @@
 			display: flex;
 			align-items: center;
 			gap: 2rem;
-
-			.hamburger {
-				display: flex;
-				flex-direction: column;
-				gap: 2.8px;
-
-				div {
-					width: 25px;
-					height: 2.8px;
-					background-color: #fff;
-					border-radius: 50px;
-				}
-			}
 
 			.header__logo {
 				max-width: 159px;
@@ -80,6 +68,12 @@
 
 						img {
 							width: 18px;
+						}
+					}
+
+					.basket-icon {
+						img {
+							width: 25px;
 						}
 					}
 				}
