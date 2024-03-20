@@ -31,12 +31,15 @@ function NewsCarousel() {
 						{newsData?.map((el) => (
 							<SwiperSlide key={el.id}>
 								{
-									<div className='news__card'>
-										<img src={el.image} alt='antikdecor branch' />
+									<Link to={`/news/${el.id}`} className='news__card'>
+										<img src={el.image} alt={el.title} />
 										<div className='news__card_content'>
 											<span>{el.date}</span>
 											<h3>{el.title}</h3>
-											<p>{el.description}</p>
+											<p
+												className='news__desc'
+												dangerouslySetInnerHTML={{ __html: el.content }}
+											/>
 											<Link to={`/news/${el.id}`} className='news__card_footer'>
 												<span>Смотреть</span>
 												<span>
@@ -44,7 +47,7 @@ function NewsCarousel() {
 												</span>
 											</Link>
 										</div>
-									</div>
+									</Link>
 								}
 							</SwiperSlide>
 						))}

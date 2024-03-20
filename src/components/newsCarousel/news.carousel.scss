@@ -31,10 +31,10 @@
 						height: 237px;
 						object-fit: cover;
 						margin-bottom: 1.642rem;
+						border-radius: 5px;
 					}
 
 					.news__card_content {
-						border: 1px solid;
 						display: flex;
 						flex-direction: column;
 						height: 100%;
@@ -62,6 +62,8 @@
 							font-weight: 600;
 							color: #9b9b9b;
 							margin-bottom: 1.478rem;
+							height: 3.2rem;
+							overflow: hidden;
 						}
 
 						.news__card_footer {
@@ -93,11 +95,6 @@
 
 		.swiper {
 			max-width: 880px;
-			.swiper-slide {
-				height: 419px;
-				.news__card {
-				}
-			}
 		}
 	}
 
@@ -115,6 +112,7 @@
 			padding: 2.2rem 2.2rem 3.1rem 2.2rem;
 
 			> img {
+				height: 217px;
 				margin-bottom: 1.5rem;
 			}
 			.news__card_content {

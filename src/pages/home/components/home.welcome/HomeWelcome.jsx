@@ -5,10 +5,11 @@ import './home.welcome.scss';
 import 'swiper/css';
 
 import { getData } from '../../../../utils';
+import { Link } from 'react-router-dom';
 
 function HomeWelcome() {
 	const [banners, setBanners] = useState([]);
-	
+
 	useEffect(() => {
 		async function getBanners(url) {
 			const res = await getData(url);
@@ -37,7 +38,7 @@ function HomeWelcome() {
 						<div className='home-welcome__content'>
 							<h1>{el.title}</h1>
 							<p>{el.subtitle}</p>
-							<button>Оставить заявку</button>
+							<a href='#contact'>Оставить заявку</a>
 						</div>
 					</SwiperSlide>
 				))}

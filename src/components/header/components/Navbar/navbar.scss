@@ -157,11 +157,18 @@
 				align-items: center;
 				gap: 2rem;
 
-				a {
+				.nav-link {
 					font-size: 1.4rem;
 					line-height: 1.789rem;
 					color: #242424;
 					font-weight: 600;
+				}
+
+				.active-link {
+					font-size: 1.4rem;
+					line-height: 1.789rem;
+					font-weight: 600;
+					color: #ea5544;
 				}
 			}
 			.nav__filter {

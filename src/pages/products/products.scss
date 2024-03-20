@@ -24,15 +24,19 @@
 			0px 64px 18px 0 rgba(212, 212, 212, 0);
 
 		padding: 4px 3px;
-		max-width: 442px;
+		max-width: 470px;
 		border-radius: 29px;
 		background-color: #fff;
 
 		.filter {
-			font-style: 1rem;
+			font-size: 1rem;
 			line-height: 1.278rem;
 			font-weight: 600;
 			color: #474747;
+			padding: 1.5rem 2.5rem;
+			border-radius: 29px;
+			transition: all 150ms linear;
+			text-transform: uppercase;
 
 			&:last-child {
 				padding-right: 2.3rem;
@@ -46,8 +50,6 @@
 		.filter__active {
 			color: #fff;
 			background-color: #ea5544;
-			padding: 1.5rem 2.3rem;
-			border-radius: 29px;
 		}
 	}
 
@@ -55,7 +57,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: 442px;
+		max-width: 470px;
 
 		border-radius: 29px;
 		padding: 1.4rem 2.6rem;
@@ -85,22 +87,6 @@
 	@media (min-width: 768px) {
 		.section {
 			padding: 0 3rem;
-		}
-
-		.filters-wrapper {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-between;
-			gap: 2rem;
-
-			.filters {
-				width: 100%;
-			}
-
-			.filters__btn {
-				width: 100%;
-			}
 		}
 
 		.products__grid {

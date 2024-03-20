@@ -3,7 +3,7 @@ import globe from '../../assets/png/home_contact.png';
 
 function ContactUs() {
 	return (
-		<div className='home-contacts'>
+		<div id='contact' className='home-contacts'>
 			<section className='section'>
 				<div className='container'>
 					<h2 className='subtitle'>Обратная связь</h2>

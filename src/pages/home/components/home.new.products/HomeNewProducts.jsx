@@ -1,12 +1,24 @@
+import { useEffect, useState } from 'react';
 import './home.new.products.scss';
 import arrowRight from '../../../../assets/svg/arrow_right_gray.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import data from '../../../../data.json';
-const newProducts = data.newProducts;
+import { getData } from '../../../../utils';
+import { Link } from 'react-router-dom';
 
 function HomeNewProducts() {
+	const [newProducts, setNewProducts] = useState([]);
+
+	useEffect(() => {
+		async function getNewProducts(url) {
+			const data = await getData(url);
+			setNewProducts(data);
+		}
+
+		getNewProducts('http://192.168.0.117:8000/products/new');
+	}, []);
+
 	return (
 		<div className='home-new-products'>
 			<section className='section'>
@@ -31,13 +43,13 @@ function HomeNewProducts() {
 								spaceBetween: 24,
 							},
 						}}>
-						{newProducts.map((el) => (
+						{newProducts?.map((el) => (
 							<SwiperSlide key={el.id}>
 								{
-									<div className='new-product__card'>
-										<img src={el.img} alt='pencil draw' />
+									<Link to={`/products/${el.id}`} className='new-product__card'>
+										<img src={el.images[0]} alt='pencil draw' />
 										<p>{el.suptitle}</p>
-										<h3 className='new-product__card_title'>{el.title}</h3>
+										<h3 className='new-product__card_title'>{el.name}</h3>
 										<div className='new-product__card_footer'>
 											<div className='new-product__card_price'>
 												{el.price} ₽
@@ -49,7 +61,7 @@ function HomeNewProducts() {
 												</span>
 											</div>
 										</div>
-									</div>
+									</Link>
 								}
 							</SwiperSlide>
 						))}

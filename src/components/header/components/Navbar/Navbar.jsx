@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './navbar.scss';
 import smallLogo from '../../../../assets/svg/antikdecor_logo_small.svg';
 import exit from '../../../../assets/svg/exit.svg';
@@ -23,11 +23,41 @@ function Navbar({ show, func }) {
 				<div className='container'>
 					<div className='header__nav_large'>
 						<div className='nav__links'>
-							<Link to='/'>Главная</Link>
-							<Link to='/catalog'>Каталог</Link>
-							<Link to='/news'>Новости</Link>
-							<Link to='/about'>О нас</Link>
-							<Link to='/contacts'>Контакты</Link>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? 'active-link' : 'nav-link'
+								}
+								to='/'>
+								Главная
+							</NavLink>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? 'active-link' : 'nav-link'
+								}
+								to='/catalog'>
+								Каталог
+							</NavLink>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? 'active-link' : 'nav-link'
+								}
+								to='/news'>
+								Новости
+							</NavLink>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? 'active-link' : 'nav-link'
+								}
+								to='/about'>
+								О нас
+							</NavLink>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? 'active-link' : 'nav-link'
+								}
+								to='/contacts'>
+								Контакты
+							</NavLink>
 						</div>
 						<div className='nav__filter'>
 							<div>
@@ -80,7 +110,10 @@ function Navbar({ show, func }) {
 					<Link onClick={() => func(!show)} to='/'>
 						Главная
 					</Link>
-					<div className='nav__accordion'>
+					<Link onClick={() => func(!show)} to='/catalog'>
+						Каталог
+					</Link>
+					{/* <div className='nav__accordion'>
 						<div
 							onClick={() => setOpenCategory(!openCategory)}
 							className={`accordion-title ${openCategory && 'selected-title'}`}>
@@ -146,7 +179,7 @@ function Navbar({ show, func }) {
 								))}
 							</div>
 						</div>
-					</div>
+					</div> */}
 					<Link onClick={() => func(!show)} to='/news'>
 						Новости
 					</Link>

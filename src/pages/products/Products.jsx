@@ -1,25 +1,65 @@
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
+import ProductCard from '../../components/productCard/ProductCard';
+import Accordion from '../../components/accordion/Accordion';
+import ContactUs from '../../components/contactUs/ContactUs';
+import { getData } from '../../utils';
+
 import './products.scss';
 import filter from '../../assets/svg/filter.svg';
 
-import data from '../../data.json';
-import ProductCard from '../../components/productsCard/ProductCard';
-import Accordion from '../../components/accordion/Accordion';
-import ContactUs from '../../components/contactUs/ContactUs';
-import { Link } from 'react-router-dom';
-const clocks = data.clocks;
-
-const accordions = [
-	{
-		title: 'Авторство',
-		accItems: ['Западная Европа', 'Русский период', 'Советский период'],
-	},
-	{
-		title: 'Жанры',
-		accItems: ['Анималистический жанр', 'Ботаника', 'Бытовые и жанровые сцены'],
-	},
-];
-
 function Products() {
+	const { id } = useParams();
+
+	const [filters, setFilters] = useState({});
+	const [products, setProducts] = useState([]);
+	const [categoryId, setCategoryId] = useState('');
+
+	useEffect(() => {
+		async function getFilters(url) {
+			const data = await getData(url);
+			setFilters(data);
+		}
+
+		getFilters(`http://192.168.0.117:8000/products/categories/${id}`);
+	}, [id]);
+
+	useEffect(() => {
+		async function getProducts(url) {
+			const data = await getData(url);
+			setProducts(data);
+		}
+
+		getProducts(`http://192.168.0.117:8000/products/?category_id=${id}`);
+	}, [id]);
+
+	async function filterCat(url) {
+		const data = await getData(url);
+		setProducts(data);
+	}
+
+	function handleClick(n, catId) {
+		const categories = document.querySelectorAll('.filter');
+		categories.forEach((el, index) => {
+			el.classList.remove('filter__active');
+			n === index && el.classList.add('filter__active');
+		});
+		if (catId !== 0) {
+			filterCat(`http://192.168.0.117:8000/products/?category_id=${catId}`);
+		} else {
+			filterCat(`http://192.168.0.117:8000/products/?category_id=${id}`);
+		}
+		setCategoryId(catId);
+	}
+
+	let subCat = [];
+	if (filters) {
+		if (filters.sub_categories) {
+			subCat = filters.sub_categories;
+		}
+	}
+	const arr = [...[{ id: 0, name: 'Все работы' }], ...subCat];
 	return (
 		<div className='products'>
 			<section className='section'>
@@ -27,10 +67,14 @@ function Products() {
 					<h2 className='subtitle'>ЧАСЫ И НАУЧНЫЕ ПРИБОРЫ</h2>
 					<div className='filters-wrapper'>
 						<div className='filters'>
-							<span className='filter filter__active'>Все работы</span>
-							<span className='filter'>Живопись</span>
-							<span className='filter'>Графика</span>
-							<span className='filter'>Рисунок</span>
+							{arr.map((el, index) => (
+								<span
+									onClick={() => handleClick(index, el.id)}
+									key={el.id}
+									className={`filter ${index === 0 && 'filter__active'}`}>
+									{el.name}
+								</span>
+							))}
 						</div>
 						<div className='filters__btn'>
 							<span>Все фильтры</span>
@@ -41,13 +85,19 @@ function Products() {
 					</div>
 					<div className='products__layout'>
 						<div className='filters__large'>
-							{accordions.map((accardion) => (
-								<Accordion acc={accardion} />
+							{filters?.sidebar?.map((accardion) => (
+								<Accordion
+									key={accardion.id}
+									acc={accardion}
+									func={setProducts}
+									categoryId={categoryId}
+									catalogId={id}
+								/>
 							))}
 						</div>
 						<div className='products__grid'>
-							{clocks.map((product) => (
-								<Link to={`/products/${product.id}`}>
+							{products.map((product) => (
+								<Link key={product.id} to={`/catalog/${id}/${product.id}`}>
 									<ProductCard key={product.id} el={product} />
 								</Link>
 							))}

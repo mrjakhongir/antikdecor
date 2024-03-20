@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Basket from './pages/basket/Basket';
@@ -11,7 +11,28 @@ import Footer from './components/footer/Footer';
 import NewsDetail from './pages/news/newsDetail/NewsDetail';
 import ProductDetails from './pages/products/productDetails/productDetails';
 
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { newsData } from './redux/newsSlice';
+import { getData } from './utils';
+
 function App() {
+	const dispatch = useDispatch();
+	const location = useLocation();
+
+	useEffect(() => {
+		async function getNews(url) {
+			const res = await getData(url);
+			dispatch(newsData(res));
+		}
+
+		getNews('http://192.168.0.117:8000/news/');
+	}, [dispatch]);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location.pathname]);
+
 	return (
 		<>
 			<Header />
@@ -20,11 +41,12 @@ function App() {
 				<Route path='/about' element={<About />} />
 				<Route path='/basket' element={<Basket />} />
 				<Route path='/catalog' element={<Catalog />} />
+				<Route path='/catalog/:id' element={<Products />} />
+				<Route path='/catalog/:id/:id' element={<ProductDetails />} />
+				<Route path='/products/:id' element={<ProductDetails />} />
 				<Route path='/contacts' element={<Contacts />} />
 				<Route path='/news' element={<News />} />
 				<Route path='/news/:id' element={<NewsDetail />} />
-				<Route path='/products' element={<Products />} />
-				<Route path='/products/:id' element={<ProductDetails />} />
 			</Routes>
 			<Footer />
 		</>

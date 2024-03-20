@@ -1,5 +1,5 @@
 .search-mobile {
-	display: flex;
+	display: none;
 	justify-content: space-between;
 	align-items: center;
 	gap: 2rem;
@@ -16,7 +16,6 @@
 		0px 41px 16px 0px rgba(212, 212, 212, 0.01),
 		0px 64px 18px 0px rgba(212, 212, 212, 0);
 
-	transform: translateX(100%);
 	transition: all 150ms linear;
 
 	.search-bar {
@@ -42,5 +41,5 @@
 }
 
 .show-search-mobile {
-	transform: translateX(0);
+	display: flex;
 }

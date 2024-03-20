@@ -1,5 +1,6 @@
-import './catalog.scss';
+import { Link } from 'react-router-dom';
 import data from '../../data.json';
+import './catalog.scss';
 import CatalogGrid from '../../components/catalogGrid/CatalogGrid';
 import CatalogImg from '../../components/catalogImg/CatalogImg';
 const catalog = data.catalog;
@@ -12,7 +13,9 @@ function Catalog() {
 					<h2 className='subtitle'>Каталог</h2>
 					<div className='catalog__grid_small'>
 						{catalog.map((el) => (
-							<CatalogImg el={el} />
+							<Link to={`/catalog/${el.id}`}>
+								<CatalogImg el={el} />
+							</Link>
 						))}
 					</div>
 					<div className='catalog__grid_large'>

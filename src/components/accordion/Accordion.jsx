@@ -1,9 +1,34 @@
 import { useState } from 'react';
 import './accordion.scss';
+import { getData } from '../../utils';
 
-function Accordion({ acc }) {
-	const { title, accItems } = acc;
+function Accordion({ acc, func, categoryId, catalogId }) {
+	const { name, sub_categories } = acc;
+
 	const [accordionOpen, isAccordionOpen] = useState(false);
+
+	categoryId = categoryId || catalogId;
+
+	async function selectSidebarCart(id, n) {
+		const sidebarSubcategories = document.querySelectorAll(
+			'.sidebar-subcategory'
+		);
+
+		sidebarSubcategories.forEach((el, index) => {
+			el.classList.remove('active-sidebar-subcategory');
+
+			if (n === index) {
+				el.classList.add('active-sidebar-subcategory');
+			}
+		});
+
+		const data = await getData(
+			`http://192.168.0.117:8000/products/?category_id=${categoryId}&sidebar_id=${id}`
+		);
+
+		func(data);
+	}
+
 	return (
 		<div className='accordion'>
 			<div
@@ -11,7 +36,7 @@ function Accordion({ acc }) {
 				className={`accordion__head ${
 					accordionOpen && 'accordion__head--active'
 				}`}>
-				<h4 className='accordion__title'>{title}</h4>
+				<h4 className='accordion__title'>{name}</h4>
 				<svg
 					className='caret'
 					width='14'
@@ -31,8 +56,13 @@ function Accordion({ acc }) {
 			</div>
 			<div className={`accordion__body ${accordionOpen && 'accordion-open'} `}>
 				<div>
-					{accItems.map((el) => (
-						<span>{el}</span>
+					{sub_categories.map((el, index) => (
+						<span
+							className='sidebar-subcategory'
+							key={el.id}
+							onClick={() => selectSidebarCart(el.id, index)}>
+							{el.name}
+						</span>
 					))}
 				</div>
 			</div>

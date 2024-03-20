@@ -4,6 +4,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 
 import data from '../../../../data.json';
+import { Link } from 'react-router-dom';
 const aboutData = data.aboutData;
 function HomeAbout() {
 	return (
@@ -22,7 +23,7 @@ function HomeAbout() {
 							старинных гравюрах, литографиях, эстампах и печатной графике всех
 							стилей и направлений.
 						</p>
-						<button>Подробнее о нас</button>
+						<Link to='/about'>Подробнее о нас</Link>
 					</div>
 					<div className='home-about__carousel'>
 						<Swiper
