@@ -1,6 +1,7 @@
 import './catalog.grid.scss';
 import data from '../../data.json';
 import CatalogImg from '../catalogImg/CatalogImg';
+
 const catalog = data.catalog;
 
 function CatalogGrid() {

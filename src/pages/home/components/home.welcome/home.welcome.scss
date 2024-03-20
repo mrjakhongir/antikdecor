@@ -4,8 +4,11 @@
 	.swiper {
 		position: relative;
 		.swiper-slide {
+			height: 688px;
+			background-color: #999;
+			background-blend-mode: multiply;
 			background-repeat: no-repeat;
-			background-position: 34%;
+			background-position: center;
 			background-size: cover;
 			padding: 33.5rem 2rem 3.5rem;
 

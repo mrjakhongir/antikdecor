@@ -1,12 +1,23 @@
-import './home.welcome.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useState } from 'react';
 import { Pagination, Navigation } from 'swiper/modules';
+import './home.welcome.scss';
 import 'swiper/css';
 
-import data from '../../../../data.json';
-const welcome = data.welcome;
+import { getData } from '../../../../utils';
 
 function HomeWelcome() {
+	const [banners, setBanners] = useState([]);
+	
+	useEffect(() => {
+		async function getBanners(url) {
+			const res = await getData(url);
+			setBanners(res);
+		}
+
+		getBanners('http://192.168.0.117:8000/banners/');
+	}, []);
+
 	return (
 		<div className='home-welcome'>
 			<Swiper
@@ -19,13 +30,13 @@ function HomeWelcome() {
 					prevEl: '.pagination_prev_btn',
 					nextEl: '.pagination_next_btn',
 				}}>
-				{welcome.map((el) => (
-					<SwiperSlide style={{ backgroundImage: `url(${el.img})` }}>
+				{banners?.map((el, index) => (
+					<SwiperSlide
+						key={index}
+						style={{ backgroundImage: `url(${el.image})` }}>
 						<div className='home-welcome__content'>
-							<h1>Первый в РосСии гравюрный кабинет</h1>
-							<p>
-								Открой историю вместе с нами: коллекция антикварных сокровищ
-							</p>
+							<h1>{el.title}</h1>
+							<p>{el.subtitle}</p>
 							<button>Оставить заявку</button>
 						</div>
 					</SwiperSlide>

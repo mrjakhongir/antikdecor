@@ -1,14 +1,22 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import './newsDetail.scss';
-import data from '../../../data.json';
+import { getData } from '../../../utils';
 import NewsGrid from '../../../components/newsGrid/NewsGrid';
-
-const news = data.news;
+import './newsDetail.scss';
 
 function NewsDetail() {
+	const [news, setNews] = useState([]);
 	const { id } = useParams();
-	const selectedNew = news.find((el) => el.id === +id);
+
+	useEffect(() => {
+		async function getNews(url) {
+			const res = await getData(url);
+			setNews(res);
+		}
+
+		getNews(`http://192.168.0.117:8000/news/${id}`);
+	}, [id]);
 
 	return (
 		<div className='news-detail'>
@@ -16,15 +24,13 @@ function NewsDetail() {
 				<div className='container'>
 					<div className='selected-news'>
 						<div className='selected-news__content'>
-							<span>{selectedNew.date}</span>
-							<h1 className='subtitle'>{selectedNew.title}</h1>
-							{selectedNew.text.map((el) => (
-								<p>{el}</p>
-							))}
+							<span>{news.date}</span>
+							<h1 className='subtitle'>{news.title}</h1>
+							<div className='news__desc' dangerouslySetInnerHTML={{ __html: news.content }} />
 						</div>
 						<div className='selected-news__img'>
-							<img src={`../${selectedNew.img}`} alt='' />
-							<h2>{selectedNew.imgCaption}</h2>
+							<img src={news.image} alt='' />
+							<h2>{news.imgCaption}</h2>
 						</div>
 					</div>
 

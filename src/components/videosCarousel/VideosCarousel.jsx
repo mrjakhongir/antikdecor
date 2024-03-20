@@ -1,12 +1,24 @@
-import './videos.carousel.scss';
-
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import './videos.carousel.scss';
 import 'swiper/css';
 
-import data from '../../data.json';
-const videos = data.video;
+import youtube from '../../assets/svg/youtube_small.svg';
+import { getData } from '../../utils';
 
 function VideosCarousel() {
+	const [videos, setVideos] = useState([]);
+
+	useEffect(() => {
+		async function getVideos(url) {
+			const data = await getData(url);
+			setVideos(data);
+		}
+
+		getVideos('http://192.168.0.117:8000/videos/');
+	}, []);
+
 	return (
 		<div className='videos-carousel'>
 			<section className='section'>
@@ -28,12 +40,19 @@ function VideosCarousel() {
 								slidesPerView: 4,
 							},
 						}}>
-						{videos.map((el) => (
-							<SwiperSlide>
+						{videos?.map((el) => (
+							<SwiperSlide key={el.id}>
 								{
-									<div className='videos-carousel__card'>
-										<img src={el.img} alt='' />
-									</div>
+									<a
+										href={`${el.url}&autoplay=1`}
+										target='blank'
+										className='videos-carousel__card'>
+										<img src={el.banner} alt={el.title} />
+										<span>
+											<img src={youtube} alt='' />
+										</span>
+										<h3>{el.title}</h3>
+									</a>
 								}
 							</SwiperSlide>
 						))}

@@ -1,19 +1,20 @@
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import NewsCarousel from '../newsCarousel/NewsCarousel';
 import './news.grid.scss';
 import arrowRight from '../../assets/svg/arrow_right_accent.svg';
-import data from '../../data.json';
-import { Link } from 'react-router-dom';
-import NewsCarousel from '../newsCarousel/NewsCarousel';
-const news = data.news;
 
 function NewsGrid() {
+	const { newsData } = useSelector((state) => state.newsData);
 	return (
 		<div className='news-grid'>
 			<section className='section'>
 				<div className='container'>
 					<div className='news-grid__small'>
-						{news.slice(0, 3).map((el) => (
+						{newsData?.slice(0, 3).map((el) => (
 							<div className='news__card'>
-								<img src={`../${el.img}`} alt='antikdecor branch' />
+								<img src={el.image} alt='antikdecor branch' />
 								<div className='news__card_content'>
 									<span>{el.date}</span>
 									<h3>{el.title}</h3>

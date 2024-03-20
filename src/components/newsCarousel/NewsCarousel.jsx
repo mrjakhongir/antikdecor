@@ -1,13 +1,12 @@
-import './news.carousel.scss';
-import arrowRight from '../../assets/svg/arrow_right_accent.svg';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-
-import data from '../../data.json';
-import { Link } from 'react-router-dom';
-const news = data.news;
+import './news.carousel.scss';
+import arrowRight from '../../assets/svg/arrow_right_accent.svg';
+import { useSelector } from 'react-redux';
 
 function NewsCarousel() {
+	const { newsData } = useSelector((state) => state.newsData);
 	return (
 		<div className='news-carousel'>
 			<section className='section'>
@@ -29,11 +28,11 @@ function NewsCarousel() {
 								spaceBetween: 24,
 							},
 						}}>
-						{news.map((el) => (
-							<SwiperSlide>
+						{newsData?.map((el) => (
+							<SwiperSlide key={el.id}>
 								{
 									<div className='news__card'>
-										<img src={`../${el.img}`} alt='antikdecor branch' />
+										<img src={el.image} alt='antikdecor branch' />
 										<div className='news__card_content'>
 											<span>{el.date}</span>
 											<h3>{el.title}</h3>
