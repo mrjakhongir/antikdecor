@@ -9,6 +9,9 @@ import { getData } from '../../utils';
 import './products.scss';
 import filter from '../../assets/svg/filter.svg';
 
+import data from '../../data.json';
+const categories = data.catalog;
+
 function Products() {
 	const { id } = useParams();
 
@@ -16,13 +19,15 @@ function Products() {
 	const [products, setProducts] = useState([]);
 	const [categoryId, setCategoryId] = useState('');
 
+	const currentCategory = categories.find((el) => el.id === +id);
+
 	useEffect(() => {
 		async function getFilters(url) {
 			const data = await getData(url);
 			setFilters(data);
 		}
 
-		getFilters(`http://192.168.0.117:8000/products/categories/${id}`);
+		getFilters(`products/categories/${id}`);
 	}, [id]);
 
 	useEffect(() => {
@@ -31,7 +36,7 @@ function Products() {
 			setProducts(data);
 		}
 
-		getProducts(`http://192.168.0.117:8000/products/?category_id=${id}`);
+		getProducts(`products/?category_id=${id}`);
 	}, [id]);
 
 	async function filterCat(url) {
@@ -46,9 +51,9 @@ function Products() {
 			n === index && el.classList.add('filter__active');
 		});
 		if (catId !== 0) {
-			filterCat(`http://192.168.0.117:8000/products/?category_id=${catId}`);
+			filterCat(`products/?category_id=${catId}`);
 		} else {
-			filterCat(`http://192.168.0.117:8000/products/?category_id=${id}`);
+			filterCat(`products/?category_id=${id}`);
 		}
 		setCategoryId(catId);
 	}
@@ -64,7 +69,7 @@ function Products() {
 		<div className='products'>
 			<section className='section'>
 				<div className='container'>
-					<h2 className='subtitle'>ЧАСЫ И НАУЧНЫЕ ПРИБОРЫ</h2>
+					<h2 className='subtitle'>{currentCategory.title}</h2>
 					<div className='filters-wrapper'>
 						<div className='filters'>
 							{arr.map((el, index) => (

@@ -16,7 +16,7 @@ function VideosCarousel() {
 			setVideos(data);
 		}
 
-		getVideos('http://192.168.0.117:8000/videos/');
+		getVideos('videos/');
 	}, []);
 
 	return (

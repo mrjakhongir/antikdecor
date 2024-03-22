@@ -4,6 +4,7 @@ import 'swiper/css';
 
 import data from '../../../../data.json';
 import CatalogGrid from '../../../../components/catalogGrid/CatalogGrid';
+import { Link } from 'react-router-dom';
 const catalog = data.catalog;
 
 function HomeCatalog() {
@@ -30,10 +31,12 @@ function HomeCatalog() {
 						{catalog.map((el) => (
 							<SwiperSlide>
 								{
-									<figure>
-										<img src={el.img} alt='case clock' />
-										<figcaption>{el.title}</figcaption>
-									</figure>
+									<Link to={`catalog/${el.id}`}>
+										<figure>
+											<img src={el.img} alt='case clock' />
+											<figcaption>{el.title}</figcaption>
+										</figure>
+									</Link>
 								}
 							</SwiperSlide>
 						))}

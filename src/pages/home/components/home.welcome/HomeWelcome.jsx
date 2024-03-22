@@ -16,7 +16,7 @@ function HomeWelcome() {
 			setBanners(res);
 		}
 
-		getBanners('http://192.168.0.117:8000/banners/');
+		getBanners('banners/');
 	}, []);
 
 	return (

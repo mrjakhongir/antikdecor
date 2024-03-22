@@ -26,7 +26,7 @@ function App() {
 			dispatch(newsData(res));
 		}
 
-		getNews('http://192.168.0.117:8000/news/');
+		getNews('news/');
 	}, [dispatch]);
 
 	useEffect(() => {

@@ -13,7 +13,53 @@ function ReviewsCarousel() {
 				<div className='container'>
 					<h2 className='subtitle'>Отзывы</h2>
 
-					<Swiper
+					<div
+						className='reviews'
+						style={{
+							maxWidth: '760px',
+							height: '800px',
+							overflow: 'hidden',
+							position: 'relative',
+						}}>
+						<iframe
+							title='hello'
+							style={{
+								width: '100%',
+								height: '100%',
+								border: '1px solid #e6e6e6',
+								borderRadius: '8px',
+								boxSizing: 'border-box',
+							}}
+							src='https://yandex.ru/maps-reviews-widget/96085923111?comments'></iframe>
+						<a
+							href='https://yandex.ru/maps/org/antikdecor/96085923111/'
+							target='blank'
+							style={{
+								boxSizing: 'border-box',
+								textDecoration: 'none',
+								color: '#b3b3b3',
+								fontSize: '10px',
+								fontFamily: 'YS Text,sans-serif',
+								padding: '0 20px',
+								position: 'absolute',
+								bottom: '8px',
+								width: '100%',
+								textAlign: 'center',
+								left: '0',
+								overflow: 'hidden',
+								textOverflow: 'ellipsis',
+								display: 'block',
+								maxHeight: '14px',
+								whiteSpace: 'nowrap',
+							}}>
+							Antikdecor — Яндекс Карты
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		/* <Swiper
 						slidesPerView={1}
 						spaceBetween={10}
 						loop={true}
@@ -38,10 +84,7 @@ function ReviewsCarousel() {
 								}
 							</SwiperSlide>
 						))}
-					</Swiper>
-				</div>
-			</section>
-		</div>
+					</Swiper> */
 	);
 }
 

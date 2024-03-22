@@ -23,7 +23,7 @@ function Accordion({ acc, func, categoryId, catalogId }) {
 		});
 
 		const data = await getData(
-			`http://192.168.0.117:8000/products/?category_id=${categoryId}&sidebar_id=${id}`
+			`products/?category_id=${categoryId}&sidebar_id=${id}`
 		);
 
 		func(data);

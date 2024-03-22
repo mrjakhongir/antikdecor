@@ -2,8 +2,8 @@ import './catalog.img.scss';
 
 function CatalogImg({ el }) {
 	return (
-		<figure className={`${el.imgSize}`}>
-			<img src={el.img} alt='case clock' />
+		<figure>
+			<img src={el.img} alt={`${el.title}`} />
 			<figcaption>{el.title}</figcaption>
 		</figure>
 	);

@@ -11,11 +11,11 @@ function Footer() {
 					<nav className='footer-nav'>
 						<div className='footer-menu'>
 							<h3>Меню сайта</h3>
-							<Link to='#'>Главная</Link>
-							<Link to='#'>Каталог</Link>
-							<Link to='#'>Новости</Link>
-							<Link to='#'>О нас</Link>
-							<Link to='#'>Контакты</Link>
+							<Link to='/'>Главная</Link>
+							<Link to='/catalog'>Каталог</Link>
+							<Link to='/news'>Новости</Link>
+							<Link to='/about'>О нас</Link>
+							<Link to='/contacts'>Контакты</Link>
 						</div>
 						<div className='footer-catalog'>
 							<div>
@@ -31,7 +31,7 @@ function Footer() {
 							<div>
 								<Link to='#'>Фарфор стекло</Link>
 								<Link to='#'>Мебель и зеркала</Link>
-								<Link to='#'>Часы и научные приборы</Link>
+								<Link to='/catalog/21'>Часы и научные приборы</Link>
 								<Link to='#'>
 									Предметы антикварного <span>декора</span>
 								</Link>

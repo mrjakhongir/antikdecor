@@ -40,12 +40,12 @@ function NewsCarousel() {
 												className='news__desc'
 												dangerouslySetInnerHTML={{ __html: el.content }}
 											/>
-											<Link to={`/news/${el.id}`} className='news__card_footer'>
+											<div className='news__card_footer'>
 												<span>Смотреть</span>
 												<span>
 													<img src={arrowRight} alt='arrow' />
 												</span>
-											</Link>
+											</div>
 										</div>
 									</Link>
 								}

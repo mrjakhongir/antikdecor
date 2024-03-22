@@ -8,7 +8,7 @@ import { getData } from '../../../utils';
 function ProductDetails() {
 	const { id } = useParams();
 
-	const [product, setProduct] = useState();
+	const [product, setProduct] = useState({});
 	const [openDesc, setOpenDesc] = useState(false);
 
 	useEffect(() => {
@@ -16,12 +16,22 @@ function ProductDetails() {
 			const data = await getData(url);
 			setProduct(data);
 		}
-		getProduct(`http://192.168.0.117:8000/products/${id}`);
+		getProduct(`products/${id}`);
 	}, [id]);
 
 	let hasProduct = false;
 	if (product && product.images) {
 		hasProduct = true;
+	}
+
+	function addToBasket() {
+		localStorage.clear();
+		const basketArr = JSON.parse(localStorage.getItem('basketData'));
+		if (!basketArr) {
+			localStorage.setItem('basketData', JSON.stringify([product]));
+		} else {
+			basketArr.push(product);
+		}
 	}
 
 	return (
@@ -34,7 +44,10 @@ function ProductDetails() {
 							<div className='product-details__media'>
 								<img src={product.images[0]} alt={product.name} />
 								<div>
-									<img src={product.images[1] || product.images[0]} alt={product.name} />
+									<img
+										src={product.images[1] || product.images[0]}
+										alt={product.name}
+									/>
 
 									<div>
 										<img src={youtubeSmall} alt='' />
@@ -85,7 +98,7 @@ function ProductDetails() {
 										{openDesc ? 'Закрыт описание' : 'Читать далее'}
 									</p>
 									<p className='product-price'>{product.price} ₽</p>
-									<button>В корзину</button>
+									<button onClick={addToBasket}>В корзину</button>
 								</div>
 							</div>
 						</div>

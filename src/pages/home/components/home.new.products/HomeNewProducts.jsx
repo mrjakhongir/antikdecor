@@ -16,7 +16,7 @@ function HomeNewProducts() {
 			setNewProducts(data);
 		}
 
-		getNewProducts('http://192.168.0.117:8000/products/new');
+		getNewProducts('products/new');
 	}, []);
 
 	return (
@@ -46,7 +46,7 @@ function HomeNewProducts() {
 						{newProducts?.map((el) => (
 							<SwiperSlide key={el.id}>
 								{
-									<Link to={`/products/${el.id}`} className='new-product__card'>
+									<Link to={`products/${el.id}`} className='new-product__card'>
 										<img src={el.images[0]} alt='pencil draw' />
 										<p>{el.suptitle}</p>
 										<h3 className='new-product__card_title'>{el.name}</h3>

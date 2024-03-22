@@ -20,20 +20,25 @@
 	}
 
 	.card__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
 		h3 {
 			font-size: 1.4rem;
 			line-height: 1.789rem;
 			font-weight: 700;
 			color: #242424;
 			margin-bottom: 0.8rem;
+			max-height: 3.6rem;
+			overflow: hidden;
 		}
 
 		.card__footer {
 			display: flex;
-			align-items: center;
 			justify-content: space-between;
+			align-items: center;
 			margin-top: auto;
-
 			.product__price {
 				font-size: 2rem;
 				line-height: 2.556rem;
@@ -65,9 +70,6 @@
 		}
 
 		.card__content {
-			height: 100%;
-			display: flex;
-			flex-direction: column;
 			h3 {
 				font-size: 1.5rem;
 				line-height: 1.9rem;
@@ -75,7 +77,6 @@
 			}
 
 			.card__footer {
-				margin-top: auto;
 				.product__price {
 					font-size: 2.2rem;
 					line-height: 2.8rem;
@@ -93,8 +94,11 @@
 			box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 
 			.card__btn {
-				transition: all 120ms linear;
-				color: #ea5544;
+				span {
+					transition: all 120ms linear;
+					color: #ea5544;
+				}
+
 				.card__arrow {
 					fill: #ea5544;
 				}

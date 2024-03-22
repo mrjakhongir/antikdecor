@@ -8,7 +8,6 @@
 	.swiper {
 		max-width: 420px;
 		.swiper-wrapper {
-			padding: 0;
 			.swiper-slide {
 				width: 335px;
 				height: 429px;
@@ -54,6 +53,8 @@
 							font-weight: 700;
 							color: #242424;
 							margin-bottom: 0.7rem;
+							height: 3.6rem;
+							overflow: hidden;
 						}
 
 						p {
@@ -125,6 +126,7 @@
 				h3 {
 					font-size: 1.5rem;
 					line-height: 1.917rem;
+					height: 4rem;
 				}
 
 				p {
@@ -160,7 +162,6 @@
 
 	@media (min-width: 1440px) {
 		margin-bottom: 14rem;
-
 		.swiper {
 			max-width: 1296px;
 		}

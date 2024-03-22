@@ -15,7 +15,7 @@ function NewsDetail() {
 			setNews(res);
 		}
 
-		getNews(`http://192.168.0.117:8000/news/${id}`);
+		getNews(`news/${id}`);
 	}, [id]);
 
 	return (
@@ -26,7 +26,10 @@ function NewsDetail() {
 						<div className='selected-news__content'>
 							<span>{news.date}</span>
 							<h1 className='subtitle'>{news.title}</h1>
-							<div className='news__desc' dangerouslySetInnerHTML={{ __html: news.content }} />
+							<div
+								className='news__desc'
+								dangerouslySetInnerHTML={{ __html: news.content }}
+							/>
 						</div>
 						<div className='selected-news__img'>
 							<img src={news.image} alt='' />

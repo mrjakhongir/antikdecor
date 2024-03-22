@@ -3,7 +3,9 @@ import './product.card.scss';
 function ProductCard({ el }) {
 	return (
 		<div className='product-card'>
-			<img src={el.images[0]} alt={el.title} />
+			<div>
+				<img src={el.images[0]} alt={el.title} />
+			</div>
 			<div className='card__content'>
 				<h3>{el.name}</h3>
 				<div className='card__footer'>
