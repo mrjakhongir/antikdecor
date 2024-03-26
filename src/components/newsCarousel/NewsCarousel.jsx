@@ -31,7 +31,7 @@ function NewsCarousel() {
 						{newsData?.map((el) => (
 							<SwiperSlide key={el.id}>
 								{
-									<Link to={`/news/${el.id}`} className='news__card'>
+									<Link to={`/news/${el.id}/`} className='news__card'>
 										<div className='img-wrapper'>
 											<img src={el.image} alt={el.title} />
 										</div>

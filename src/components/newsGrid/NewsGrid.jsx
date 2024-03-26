@@ -13,7 +13,7 @@ function NewsGrid() {
 				<div className='container'>
 					<div className='news-grid__small'>
 						{newsData?.slice(0, 3).map((el) => (
-							<Link to={`/news/${el.id}`} key={el.id} className='news__card'>
+							<Link to={`/news/${el.id}/`} key={el.id} className='news__card'>
 								<div className='img-wrapper'>
 									<img src={el.image} alt='antikdecor branch' />
 								</div>
@@ -21,7 +21,7 @@ function NewsGrid() {
 									<span>{el.date}</span>
 									<h3>{el.title}</h3>
 									<p dangerouslySetInnerHTML={{ __html: el.content }} />
-									<Link to={`/news/${el.id}`} className='news__card_footer'>
+									<Link to={`/news/${el.id}/`} className='news__card_footer'>
 										<span>Смотреть</span>
 										<span>
 											<img src={arrowRight} alt='arrow' />

@@ -16,7 +16,7 @@ function ProductDetails() {
 			const data = await getData(url);
 			setProduct(data);
 		}
-		getProduct(`products/${id}`);
+		getProduct(`products/${id}/`);
 	}, [id]);
 
 	let hasProduct = false;

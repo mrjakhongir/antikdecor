@@ -16,7 +16,7 @@ function HomeNewProducts() {
 			setNewProducts(data);
 		}
 
-		getNewProducts('products/new');
+		getNewProducts('products/new/');
 	}, []);
 
 	return (

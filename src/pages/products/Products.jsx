@@ -32,19 +32,18 @@ function Products() {
 			setFilters(data);
 		}
 
-		getFilters(`products/categories/${id}`);
+		getFilters(`products/categories/${id}/`);
 	}, [id]);
-
-	// console.log(currentPage);
 
 	useEffect(() => {
 		async function getProducts(url) {
 			const data = await getData(url);
+			console.log(data);
 			setProducts(data.results);
 			setTotalPages(Math.ceil(data.count / 9));
 		}
 
-		getProducts(`products/?category_id=${id}&page=${currentPage}`);
+		getProducts(`products/?category_id=${id}&page=${currentPage}/`);
 	}, [id, currentPage]);
 
 	async function filterCat(url) {
@@ -59,9 +58,9 @@ function Products() {
 			n === index && el.classList.add('filter__active');
 		});
 		if (catId !== 0) {
-			filterCat(`products/?category_id=${catId}`);
+			filterCat(`products/?category_id=${catId}/`);
 		} else {
-			filterCat(`products/?category_id=${id}`);
+			filterCat(`products/?category_id=${id}/`);
 		}
 		setCategoryId(catId);
 	}

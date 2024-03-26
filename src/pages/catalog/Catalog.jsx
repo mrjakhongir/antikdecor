@@ -13,7 +13,7 @@ function Catalog() {
 					<h2 className='subtitle'>Каталог</h2>
 					<div className='catalog__grid_small'>
 						{catalog.map((el) => (
-							<Link to={`/catalog/${el.id}`}>
+							<Link to={`/catalog/${el.id}/`}>
 								<CatalogImg el={el} />
 							</Link>
 						))}

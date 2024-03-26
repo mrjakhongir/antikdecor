@@ -15,7 +15,7 @@ function NewsDetail() {
 			setNews(res);
 		}
 
-		getNews(`news/${id}`);
+		getNews(`news/${id}/`);
 	}, [id]);
 
 	return (

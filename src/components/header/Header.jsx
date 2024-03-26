@@ -14,6 +14,7 @@ import SeachMobile from '../searchMobile/SeachMobile';
 function Header() {
 	const [showNav, setShowNav] = useState(false);
 	const [showSearch, setShowSearch] = useState(false);
+
 	return (
 		<header className='header'>
 			<section className='section'>

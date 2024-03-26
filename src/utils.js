@@ -1,5 +1,5 @@
 export async function getData(url) {
-	const baseUrl = 'http://192.168.0.117:8000/';
+	const baseUrl = 'http://5.35.84.206:8000/';
 	try {
 		const res = await fetch(`${baseUrl}${url}`);
 		const data = await res.json();

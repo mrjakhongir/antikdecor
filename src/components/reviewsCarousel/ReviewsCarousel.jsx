@@ -1,11 +1,5 @@
 import './reviews.carousel.scss';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-
-import data from '../../data.json';
-const reviews = data.reviews;
-
 function ReviewsCarousel() {
 	return (
 		<div className='reviews-carousel'>
