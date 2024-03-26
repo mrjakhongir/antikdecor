@@ -10,6 +10,8 @@ import './products.scss';
 import filter from '../../assets/svg/filter.svg';
 
 import data from '../../data.json';
+import Pagination from '../../components/pagination/Pagination';
+
 const categories = data.catalog;
 
 function Products() {
@@ -17,6 +19,9 @@ function Products() {
 
 	const [filters, setFilters] = useState({});
 	const [products, setProducts] = useState([]);
+	const [totalPages, setTotalPages] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1);
+
 	const [categoryId, setCategoryId] = useState('');
 
 	const currentCategory = categories.find((el) => el.id === +id);
@@ -30,14 +35,17 @@ function Products() {
 		getFilters(`products/categories/${id}`);
 	}, [id]);
 
+	// console.log(currentPage);
+
 	useEffect(() => {
 		async function getProducts(url) {
 			const data = await getData(url);
-			setProducts(data);
+			setProducts(data.results);
+			setTotalPages(Math.ceil(data.count / 9));
 		}
 
-		getProducts(`products/?category_id=${id}`);
-	}, [id]);
+		getProducts(`products/?category_id=${id}&page=${currentPage}`);
+	}, [id, currentPage]);
 
 	async function filterCat(url) {
 		const data = await getData(url);
@@ -65,6 +73,7 @@ function Products() {
 		}
 	}
 	const arr = [...[{ id: 0, name: 'Все работы' }], ...subCat];
+
 	return (
 		<div className='products'>
 			<section className='section'>
@@ -101,12 +110,19 @@ function Products() {
 							))}
 						</div>
 						<div className='products__grid'>
-							{products.map((product) => (
+							{products?.map((product) => (
 								<Link key={product.id} to={`/catalog/${id}/${product.id}`}>
 									<ProductCard key={product.id} el={product} />
 								</Link>
 							))}
 						</div>
+					</div>
+					<div>
+						<Pagination
+							totalPages={totalPages}
+							setCurrentPage={setCurrentPage}
+							currentPage={currentPage}
+						/>
 					</div>
 				</div>
 			</section>

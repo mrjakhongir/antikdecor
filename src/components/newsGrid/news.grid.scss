@@ -25,11 +25,12 @@
 				0px 64px 18px 0px rgba(212, 212, 212, 0);
 			max-width: 400px;
 			height: 429px;
-
-			> img {
-				width: 100%;
-				object-fit: cover;
-				margin-bottom: 1.642rem;
+			.img-wrapper {
+				> img {
+					width: 100%;
+					object-fit: cover;
+					margin-bottom: 1.642rem;
+				}
 			}
 
 			.news__card_content {

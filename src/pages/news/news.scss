@@ -10,11 +10,26 @@
 			padding: 0 3rem;
 		}
 	}
-  
+
 	@media (min-width: 1024px) {
 		padding-top: 10rem;
 		.section {
 			padding: 0 4rem;
+		}
+
+		h2 {
+			margin-bottom: -1rem;
+		}
+	}
+
+	@media (min-width: 1440px) {
+		padding-top: 10rem;
+		.section {
+			padding: 0 4rem;
+		}
+
+		h2 {
+			margin-bottom: 1.6rem;
 		}
 	}
 }

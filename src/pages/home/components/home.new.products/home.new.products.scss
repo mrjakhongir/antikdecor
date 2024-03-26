@@ -98,28 +98,17 @@
 
 	@media (min-width: 1024px) {
 		margin-bottom: 10rem;
+
 		.swiper {
 			max-width: 1165px;
-
-			.swiper-slide {
-				.new-product__card:hover {
-					cursor: grab;
-				}
-			}
 		}
 	}
 
 	@media (min-width: 1440px) {
 		margin-bottom: 14rem;
+
 		.swiper {
 			max-width: 1296px;
-
-			.swiper-slide {
-				max-width: 306px;
-				.new-product__card:hover {
-					cursor: grab;
-				}
-			}
 		}
 	}
 }

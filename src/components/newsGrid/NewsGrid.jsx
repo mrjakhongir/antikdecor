@@ -14,7 +14,9 @@ function NewsGrid() {
 					<div className='news-grid__small'>
 						{newsData?.slice(0, 3).map((el) => (
 							<Link to={`/news/${el.id}`} key={el.id} className='news__card'>
-								<img src={el.image} alt='antikdecor branch' />
+								<div className='img-wrapper'>
+									<img src={el.image} alt='antikdecor branch' />
+								</div>
 								<div className='news__card_content'>
 									<span>{el.date}</span>
 									<h3>{el.title}</h3>

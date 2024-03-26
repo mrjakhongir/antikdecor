@@ -12,7 +12,7 @@ function CatalogGrid() {
 	return (
 		<div className='catalog-grid'>
 			{catalog.map((el) => (
-				<Link to={`${route}/${el.id}`} className={`${el.imgSize}`}>
+				<Link key={el.id} to={`${route}/${el.id}`} className={`${el.imgSize}`}>
 					<CatalogImg el={el} />
 				</Link>
 			))}

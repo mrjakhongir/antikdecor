@@ -32,7 +32,9 @@ function NewsCarousel() {
 							<SwiperSlide key={el.id}>
 								{
 									<Link to={`/news/${el.id}`} className='news__card'>
-										<img src={el.image} alt={el.title} />
+										<div className='img-wrapper'>
+											<img src={el.image} alt={el.title} />
+										</div>
 										<div className='news__card_content'>
 											<span>{el.date}</span>
 											<h3>{el.title}</h3>
