@@ -4,18 +4,21 @@ import './productDetails.scss';
 
 import youtubeSmall from '../../../assets/svg/youtube_small.svg';
 import { getData } from '../../../utils';
+import AddToCartBtn from '../../../components/addToCardBtn/AddToCartBtn';
 
 function ProductDetails() {
 	const { id } = useParams();
 
 	const [product, setProduct] = useState({});
 	const [openDesc, setOpenDesc] = useState(false);
+	const [disabledBtn, setDisabledBtn] = useState(false);
 
 	useEffect(() => {
 		async function getProduct(url) {
 			const data = await getData(url);
 			setProduct(data);
 		}
+
 		getProduct(`products/${id}/`);
 	}, [id]);
 
@@ -24,13 +27,27 @@ function ProductDetails() {
 		hasProduct = true;
 	}
 
-	function addToBasket() {
-		localStorage.clear();
-		const basketArr = JSON.parse(localStorage.getItem('basketData'));
-		if (!basketArr) {
-			localStorage.setItem('basketData', JSON.stringify([product]));
+	async function addToCart() {
+		setDisabledBtn(true);
+
+		if (localStorage.getItem('cartData')) {
+			if (JSON.parse(localStorage.getItem('cartData')).length) {
+				const data = await JSON.parse(localStorage.getItem('cartData'));
+				const idArr = await JSON.parse(localStorage.getItem('idArr'));
+
+				if (!idArr?.includes(product.id)) {
+					data.push(product);
+					idArr.push(product.id);
+					localStorage.setItem('cartData', JSON.stringify(data));
+					localStorage.setItem('idArr', JSON.stringify(idArr));
+				}
+			} else {
+				localStorage.setItem('cartData', JSON.stringify([product]));
+				localStorage.setItem('idArr', JSON.stringify([product.id]));
+			}
 		} else {
-			basketArr.push(product);
+			localStorage.setItem('cartData', JSON.stringify([product]));
+			localStorage.setItem('idArr', JSON.stringify([product.id]));
 		}
 	}
 
@@ -50,8 +67,11 @@ function ProductDetails() {
 									/>
 
 									<div>
-										<img src={youtubeSmall} alt='' />
-										{/* {!product.video_url && 'No video'} */}
+										{product.video_url ? (
+											<img src={youtubeSmall} alt='' />
+										) : (
+											'No video'
+										)}
 									</div>
 								</div>
 							</div>
@@ -63,7 +83,7 @@ function ProductDetails() {
 										<span>{product.vendor_code}</span>
 									</p>
 									<p>
-										<span>Название:</span>
+										<span>Название: </span>
 										<span>{product.name}</span>
 									</p>
 									<p>
@@ -97,8 +117,18 @@ function ProductDetails() {
 										onClick={() => setOpenDesc(!openDesc)}>
 										{openDesc ? 'Закрыт описание' : 'Читать далее'}
 									</p>
-									<p className='product-price'>{product.price} ₽</p>
-									<button onClick={addToBasket}>В корзину</button>
+									<p className='product-price'>
+										{product.price
+											.toString()
+											.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+										₽
+									</p>
+									<AddToCartBtn
+										product={product}
+										disabledBtn={disabledBtn}
+										setDisabledBtn={setDisabledBtn}
+										func={addToCart}
+									/>
 								</div>
 							</div>
 						</div>

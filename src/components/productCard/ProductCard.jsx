@@ -3,13 +3,15 @@ import './product.card.scss';
 function ProductCard({ el }) {
 	return (
 		<div className='product-card'>
-			<div>
+			<div className='card__img-wrapper'>
 				<img src={el.images[0]} alt={el.title} />
 			</div>
 			<div className='card__content'>
 				<h3>{el.name}</h3>
 				<div className='card__footer'>
-					<div className='product__price'>{el.price} ₽</div>
+					<div className='product__price'>
+						{el.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽
+					</div>
 					<div className='card__btn'>
 						<span>Смотреть</span>
 						<svg

@@ -1,7 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
-import Basket from './pages/basket/Basket';
 import Catalog from './pages/catalog/Catalog';
 import Contacts from './pages/contacts/Contacts';
 import News from './pages/news/News';
@@ -15,6 +14,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { newsData } from './redux/newsSlice';
 import { getData } from './utils';
+import Cart from './pages/cart/Cart';
 
 function App() {
 	const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/about' element={<About />} />
-				<Route path='/basket' element={<Basket />} />
+				<Route path='/cart' element={<Cart />} />
 				<Route path='/catalog' element={<Catalog />} />
 				<Route path='/catalog/:id' element={<Products />} />
 				<Route path='/catalog/:id/:id' element={<ProductDetails />} />

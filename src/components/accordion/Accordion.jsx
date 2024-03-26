@@ -5,28 +5,27 @@ import { getData } from '../../utils';
 function Accordion({ acc, func, categoryId, catalogId }) {
 	const { name, sub_categories } = acc;
 
-	const [accordionOpen, isAccordionOpen] = useState(false);
+	const [accordionOpen, isAccordionOpen] = useState(true);
 
 	categoryId = categoryId || catalogId;
 
 	async function selectSidebarCart(id, n) {
-		const sidebarSubcategories = document.querySelectorAll(
-			'.sidebar-subcategory'
-		);
+		// const sidebarSubcategories = document.querySelectorAll(
+		// 	'.sidebar-subcategory'
+		// );
 
-		sidebarSubcategories.forEach((el, index) => {
-			el.classList.remove('active-sidebar-subcategory');
+		// sidebarSubcategories.forEach((el, index) => {
+		// 	el.classList.remove('active-sidebar-subcategory');
 
-			if (n === index) {
-				el.classList.add('active-sidebar-subcategory');
-			}
-		});
+		// 	if (n === index) {
+		// 		el.classList.add('active-sidebar-subcategory');
+		// 	}
+		// });
 
 		const data = await getData(
 			`products/?category_id=${categoryId}&sidebar_id=${id}`
 		);
-
-		func(data);
+		func(data.results);
 	}
 
 	return (

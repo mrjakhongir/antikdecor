@@ -7,7 +7,6 @@ const catalog = data.catalog;
 
 function CatalogGrid() {
 	const location = useLocation();
-	console.log(location.pathname);
 	let route = location.pathname === '/' ? 'catalog' : location.pathname;
 	return (
 		<div className='catalog-grid'>

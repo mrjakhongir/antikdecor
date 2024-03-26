@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import ProductCard from '../../components/productCard/ProductCard';
 import Accordion from '../../components/accordion/Accordion';
@@ -21,9 +22,9 @@ function Products() {
 	const [products, setProducts] = useState([]);
 	const [totalPages, setTotalPages] = useState(1);
 	const [currentPage, setCurrentPage] = useState(1);
+	const [searchParams, setSearchParams] = useSearchParams();
 
 	const [categoryId, setCategoryId] = useState('');
-
 	const currentCategory = categories.find((el) => el.id === +id);
 
 	useEffect(() => {
@@ -38,29 +39,38 @@ function Products() {
 	useEffect(() => {
 		async function getProducts(url) {
 			const data = await getData(url);
-			console.log(data);
 			setProducts(data.results);
 			setTotalPages(Math.ceil(data.count / 9));
 		}
 
-		getProducts(`products/?category_id=${id}&page=${currentPage}/`);
+		getProducts(`products/?category_id=${id}&page=${currentPage}`);
 	}, [id, currentPage]);
 
 	async function filterCat(url) {
 		const data = await getData(url);
-		setProducts(data);
+		console.log(data);
+		setProducts(data.results);
+		setTotalPages(Math.ceil(data.count / 9));
 	}
+	// async function getSidebarLinks(id) {
+	// 	const data = await getData(`products/categories/${id}/`);
+
+	// }
 
 	function handleClick(n, catId) {
 		const categories = document.querySelectorAll('.filter');
+
+		// getSidebarLinks(catId);
+
 		categories.forEach((el, index) => {
 			el.classList.remove('filter__active');
 			n === index && el.classList.add('filter__active');
 		});
+
 		if (catId !== 0) {
-			filterCat(`products/?category_id=${catId}/`);
+			filterCat(`products/?category_id=${catId}`);
 		} else {
-			filterCat(`products/?category_id=${id}/`);
+			filterCat(`products/?category_id=${id}`);
 		}
 		setCategoryId(catId);
 	}
@@ -121,6 +131,7 @@ function Products() {
 							totalPages={totalPages}
 							setCurrentPage={setCurrentPage}
 							currentPage={currentPage}
+							setSearchParams={setSearchParams}
 						/>
 					</div>
 				</div>

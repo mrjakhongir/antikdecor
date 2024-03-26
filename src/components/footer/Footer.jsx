@@ -20,22 +20,22 @@ function Footer() {
 						<div className='footer-catalog'>
 							<div>
 								<h3>Каталог</h3>
-								<Link to='#'>
+								<Link to='/catalog/1'>
 									Живопись графика <span>рисунок</span>
 								</Link>
-								<Link to='#'>Гравюры</Link>
-								<Link to='#'>Винный антиквариат</Link>
-								<Link to='#'>Бронза</Link>
-								<Link to='#'>Серебро</Link>
+								<Link to='/catalog/10'>Гравюры</Link>
+								<Link to='/catalog/2'>Винный антиквариат</Link>
+								<Link to='/catalog/3'>Бронза</Link>
+								<Link to='/catalog/4'>Серебро</Link>
 							</div>
 							<div>
-								<Link to='#'>Фарфор стекло</Link>
-								<Link to='#'>Мебель и зеркала</Link>
-								<Link to='/catalog/21'>Часы и научные приборы</Link>
-								<Link to='#'>
+								<Link to='/catalog/5'>Фарфор стекло</Link>
+								<Link to='/catalog/6'>Мебель и зеркала</Link>
+								<Link to='/catalog/7'>Часы и научные приборы</Link>
+								<Link to='/catalog/8'>
 									Предметы антикварного <span>декора</span>
 								</Link>
-								<Link to='#'>Искуство востока</Link>
+								<Link to='/catalog/9'>Искуство востока</Link>
 							</div>
 						</div>
 						<div className='footer-contacts'>

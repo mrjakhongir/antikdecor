@@ -2,21 +2,8 @@ import { Link, NavLink } from 'react-router-dom';
 import './navbar.scss';
 import smallLogo from '../../../../assets/svg/antikdecor_logo_small.svg';
 import exit from '../../../../assets/svg/exit.svg';
-// import { useState } from 'react';
-
-// const categories = [
-// 	'Стекло',
-// 	'Бронза',
-// 	'Мебель и зеркала',
-// 	'Антикварные штопоры и винный антиквариат',
-// 	'Искусство Востока, Африки и Азии',
-// 	'Фарфор',
-// 	'Осветительные приборы',
-// 	'Предметы антикварного декора',
-// ];
 
 function Navbar({ show, func }) {
-	// const [openCategory, setOpenCategory] = useState(false);
 	return (
 		<nav className={`header__nav ${show && 'open-nav'}`}>
 			<section className='section'>
@@ -95,73 +82,7 @@ function Navbar({ show, func }) {
 					<Link onClick={() => func(!show)} to='/catalog'>
 						Каталог
 					</Link>
-					{/* <div className='nav__accordion'>
-						<div
-							onClick={() => setOpenCategory(!openCategory)}
-							className={`accordion-title ${openCategory && 'selected-title'}`}>
-							<span>Каталог</span>
-							<svg
-								width='14'
-								height='8'
-								viewBox='0 0 14 8'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'>
-								<path
-									className='nav__caret'
-									d='M12.5527 6.87988L6.77637 1.11988L1.00001 6.87988'
-									stroke='#ea5544'
-									stroke-width='1.5'
-									stroke-linecap='round'
-									stroke-linejoin='round'
-								/>
-							</svg>
-						</div>
 
-						<div
-							className={`accordion-body ${
-								openCategory && 'show-accordion-body'
-							}`}>
-							<div>
-								<div className='accordion-title'>
-									<span>Живопись, графика</span>
-									<svg
-										width='14'
-										height='8'
-										viewBox='0 0 14 8'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'>
-										<path
-											d='M12.5527 6.87988L6.77637 1.11988L1.00001 6.87988'
-											stroke='#ea5544'
-											stroke-width='1.5'
-											stroke-linecap='round'
-											stroke-linejoin='round'
-										/>
-									</svg>
-								</div>
-								<div className='accordion-title'>
-									<span>Гравюры, литографии</span>
-									<svg
-										width='14'
-										height='8'
-										viewBox='0 0 14 8'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'>
-										<path
-											d='M12.5527 6.87988L6.77637 1.11988L1.00001 6.87988'
-											stroke='#ea5544'
-											stroke-width='1.5'
-											stroke-linecap='round'
-											stroke-linejoin='round'
-										/>
-									</svg>
-								</div>
-								{categories.map((category) => (
-									<Link to='#'>{category}</Link>
-								))}
-							</div>
-						</div>
-					</div> */}
 					<Link onClick={() => func(!show)} to='/news'>
 						Новости
 					</Link>

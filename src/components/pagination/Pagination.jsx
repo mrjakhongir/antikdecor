@@ -3,9 +3,15 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 import './pagination.scss';
 
-function Pagination({ totalPages, setCurrentPage, currentPage }) {
+function Pagination({
+	totalPages,
+	setCurrentPage,
+	currentPage,
+	setSearchParams,
+}) {
 	function handlePageClick({ selected }) {
 		setCurrentPage(selected + 1);
+		setSearchParams({ page: currentPage });
 	}
 
 	const showNextBtn = currentPage !== totalPages;

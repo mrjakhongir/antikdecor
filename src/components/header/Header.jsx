@@ -1,20 +1,20 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar';
 import './header.scss';
 
 import logo from '../../assets/svg/antikdecor_logo_big.svg';
 import envelope from '../../assets/svg/envelope.svg';
-import location from '../../assets/svg/location.svg';
 import basket from '../../assets/svg/basket.svg';
+import locationSvg from '../../assets/svg/location.svg';
 import Hamburger from '../hamburger/Hamburger';
 import SeachMobile from '../searchMobile/SeachMobile';
 
 function Header() {
 	const [showNav, setShowNav] = useState(false);
 	const [showSearch, setShowSearch] = useState(false);
-
+	const location = useLocation();
 	return (
 		<header className='header'>
 			<section className='section'>
@@ -22,7 +22,13 @@ function Header() {
 					<div className='header__top'>
 						<div className='header__top_left'>
 							<Hamburger show={showNav} func={setShowNav} theme='dark' />
-							<img className='header__logo' src={logo} alt='antikdecor logo' />
+							<Link to={'/'}>
+								<img
+									className='header__logo'
+									src={logo}
+									alt='antikdecor logo'
+								/>
+							</Link>
 						</div>
 
 						<div className='header__top_right'>
@@ -35,15 +41,19 @@ function Header() {
 									target='blank'
 									href='https://www.google.com/maps/place/Moskva,+Rossiya/@55.5607945,35.0195451,8z/data=!4m15!1m8!3m7!1s0x46b54afc73d4b0c9:0x3d44d6cc5757cf4c!2sMoskva,+Rossiya!3b1!8m2!3d55.755826!4d37.6172999!16zL20vMDRzd2Q!3m5!1s0x46b54afc73d4b0c9:0x3d44d6cc5757cf4c!8m2!3d55.755826!4d37.6172999!16zL20vMDRzd2Q?entry=ttu'
 									className='header__location'>
-									<img src={location} alt='location' />
+									<img src={locationSvg} alt='location' />
 									<span>Москва-Санкт-Петербург</span>
 								</a>
-								<Link className='basket-icon' to='/basket'>
+								<Link
+									className={`basket-icon ${
+										location.pathname === '/cart' && 'cart-page'
+									}`}
+									to='/cart'>
 									<img src={basket} alt='' />
 								</Link>
 							</div>
 							<div className='header__filters'>
-								<Link to='/basket'>
+								<Link to='/cart'>
 									<img src={basket} alt='basket' />
 								</Link>
 								<span onClick={() => setShowSearch(!showSearch)}>
