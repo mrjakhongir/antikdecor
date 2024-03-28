@@ -1,5 +1,5 @@
 import './contact.us.scss';
-import globe from '../../assets/png/home_contact.png';
+import globe from '../../assets/png/contact_globe.png';
 
 function ContactUs() {
 	return (
@@ -21,7 +21,7 @@ function ContactUs() {
 							</p>
 						</div>
 						<div className='home-contacts__right'>
-							<img src={globe} alt='globe' />
+							<img className='globe' src={globe} alt='globe' />
 						</div>
 					</div>
 				</div>

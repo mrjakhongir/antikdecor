@@ -3,15 +3,26 @@ import './cart.scss';
 
 function Cart() {
 	const [cartData, setCartData] = useState([]);
+	const [hasData, setHasData] = useState(false);
 
 	const totalSum = cartData.reduce((acc, product) => {
 		return acc + product.price;
 	}, 0);
 
 	async function getFromLocalStorage() {
-		const data = await JSON.parse(localStorage.getItem('cartData'));
-		setCartData(data);
+		if (!localStorage.getItem('cartData')) {
+			setHasData(false);
+		} else {
+			if (JSON.parse(localStorage.getItem('cartData')).length) {
+				const data = await JSON.parse(localStorage.getItem('cartData'));
+				setCartData(data);
+				setHasData(true);
+			} else {
+				setHasData(false);
+			}
+		}
 	}
+
 	useEffect(() => {
 		getFromLocalStorage();
 	}, []);
@@ -22,7 +33,7 @@ function Cart() {
 			if (el.id === id) {
 				deleteIndex = index;
 			}
-			return 0;
+			return '';
 		});
 
 		cartData.splice(deleteIndex, 1);
@@ -37,7 +48,7 @@ function Cart() {
 				<div className='container'>
 					<h2 className='subtitle'>Корзина</h2>
 					<div className='products'>
-						{cartData.length ? (
+						{hasData ? (
 							cartData.map((product) => (
 								<div className='product'>
 									<div className='product__details'>

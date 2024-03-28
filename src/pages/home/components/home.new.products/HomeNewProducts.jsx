@@ -16,7 +16,7 @@ function HomeNewProducts() {
 			setNewProducts(data);
 		}
 
-		getNewProducts('products/new/');
+		getNewProducts('new-products/');
 	}, []);
 
 	return (
@@ -47,13 +47,18 @@ function HomeNewProducts() {
 							<SwiperSlide key={el.id}>
 								{
 									<Link to={`products/${el.id}`} className='new-product__card'>
-										<img src={el.images[0]} alt='pencil draw' />
+										<div className='new-product__img-wrapper'>
+											<img src={el.images[0]} alt='pencil draw' />
+										</div>
 
-										<p>{el.suptitle}</p>
+										<p>{el.catalog}</p>
 										<h3 className='new-product__card_title'>{el.name}</h3>
 										<div className='new-product__card_footer'>
 											<div className='new-product__card_price'>
-												{el.price} ₽
+												{el.price
+													.toString()
+													.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+												₽
 											</div>
 											<div className='new-product__card_btn'>
 												<span>Смотреть</span>

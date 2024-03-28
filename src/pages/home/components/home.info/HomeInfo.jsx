@@ -41,7 +41,7 @@ function HomeInfo() {
 						{info.map((inf) => (
 							<div className='home-info__card'>
 								<img src={inf.img} alt='years of experience' />
-								<h3>{inf.cardTitle}</h3>
+								<h3>{inf.title}</h3>
 								<p>{inf.description}</p>
 							</div>
 						))}

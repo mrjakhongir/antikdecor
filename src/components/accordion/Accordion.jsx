@@ -2,30 +2,40 @@ import { useState } from 'react';
 import './accordion.scss';
 import { getData } from '../../utils';
 
-function Accordion({ acc, func, categoryId, catalogId }) {
-	const { name, sub_categories } = acc;
+function Accordion({
+	acc,
+	func,
+	categoryId,
+	catalogId,
+	setNextLink,
+	setOpenFilterBtn,
+}) {
+	const { name, subcategories } = acc;
 
 	const [accordionOpen, isAccordionOpen] = useState(true);
 
 	categoryId = categoryId || catalogId;
 
-	async function selectSidebarCart(id, n) {
-		// const sidebarSubcategories = document.querySelectorAll(
-		// 	'.sidebar-subcategory'
-		// );
-
-		// sidebarSubcategories.forEach((el, index) => {
-		// 	el.classList.remove('active-sidebar-subcategory');
-
-		// 	if (n === index) {
-		// 		el.classList.add('active-sidebar-subcategory');
-		// 	}
-		// });
+	async function selectSidebarCart(id) {
+		const sidebarSubcategories = document.querySelectorAll(
+			'.sidebar-subcategory'
+		);
+		sidebarSubcategories.forEach((el) => {
+			el.classList.remove('active-sidebar-subcategory');
+			if (+el.dataset.sidebar === id) {
+				el.classList.add('active-sidebar-subcategory');
+			}
+		});
 
 		const data = await getData(
 			`products/?category_id=${categoryId}&sidebar_id=${id}`
 		);
+
 		func(data.results);
+		setNextLink(data.next);
+		if (setOpenFilterBtn) {
+			setOpenFilterBtn(false);
+		}
 	}
 
 	return (
@@ -55,11 +65,12 @@ function Accordion({ acc, func, categoryId, catalogId }) {
 			</div>
 			<div className={`accordion__body ${accordionOpen && 'accordion-open'} `}>
 				<div>
-					{sub_categories.map((el, index) => (
+					{subcategories.map((el) => (
 						<span
+							data-sidebar={el.id}
 							className='sidebar-subcategory'
 							key={el.id}
-							onClick={() => selectSidebarCart(el.id, index)}>
+							onClick={() => selectSidebarCart(el.id)}>
 							{el.name}
 						</span>
 					))}

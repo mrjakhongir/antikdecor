@@ -71,7 +71,9 @@ function Navbar({ show, func }) {
 			</section>
 			<div className='header__nav_small'>
 				<div className='nav_small_top'>
-					<img src={smallLogo} alt='antikdecor logo' />
+					<Link onClick={() => func(!show)} to={'/'}>
+						<img src={smallLogo} alt='antikdecor logo' />
+					</Link>
 					<img onClick={() => func(!show)} src={exit} alt='cross' />
 				</div>
 

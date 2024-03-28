@@ -64,6 +64,12 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			position: relative;
+
+			.globe {
+				width: 100%;
+				max-width: 447px;
+			}
 		}
 	}
 
@@ -129,7 +135,7 @@
 		}
 	}
 
-	@media (min-width: 1170px) {
+	@media (min-width: 1258px) {
 		margin-bottom: 10rem;
 		.home-contacts__content {
 			.home-contacts__left {
@@ -160,8 +166,6 @@
 					text-align: left;
 					padding: 0;
 				}
-			}
-			.home-contacts__right {
 			}
 		}
 	}

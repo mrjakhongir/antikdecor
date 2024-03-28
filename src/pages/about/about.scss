@@ -171,15 +171,6 @@
 
 		.about__gallery {
 			margin-bottom: 10rem;
-
-			img {
-				transform: scale(1.1);
-
-				&:hover {
-					cursor: pointer;
-					transform: scale(1);
-				}
-			}
 		}
 	}
 
@@ -187,7 +178,7 @@
 		.about__text {
 			margin-bottom: 13.2rem;
 		}
-		
+
 		.about__info-steps {
 			grid-template-columns: repeat(4, minmax(306px, 1fr));
 			.info-step {

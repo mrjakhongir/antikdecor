@@ -8,7 +8,6 @@
 	.filters-wrapper {
 		display: flex;
 		flex-direction: column;
-		// align-items: flex-start;
 		gap: 1.4rem;
 		margin-bottom: 4rem;
 	}
@@ -33,9 +32,8 @@
 		.filter {
 			font-size: 1rem;
 			line-height: 1.278rem;
-			font-weight: 600;
 			color: #474747;
-			padding: 1.5rem 2.5rem;
+			padding: 1.5rem 1rem;
 			border-radius: 29px;
 			transition: all 150ms linear;
 			text-transform: uppercase;
@@ -56,40 +54,88 @@
 	}
 
 	.filters__btn {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		min-width: 334px;
-		max-width: 470px;
+		max-width: 350px;
+		.filters__btn_head {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			min-width: 334px;
+			width: 100%;
+			border-radius: 29px;
+			padding: 1.4rem 2.6rem;
+			background-color: #ea5544;
+			color: #fff;
 
-		border-radius: 29px;
-		padding: 1.4rem 2.6rem;
-		background-color: #ea5544;
-		color: #fff;
+			font-size: 1rem;
+			line-height: 1.278rem;
+			font-weight: 700;
+			margin-bottom: 30px;
+		}
 
-		font-size: 1rem;
-		line-height: 1.278rem;
-		font-weight: 700;
+		.filter__btn_accordion {
+			display: none;
+		}
+
+		.filter__btn_accordion--open {
+			display: block;
+			box-shadow: 0 3px 6px 0 rgba(212, 212, 212, 0.1),
+				0 10px 10px 0 rgba(212, 212, 212, 0.09),
+				0 23px 14px 0 rgba(212, 212, 212, 0.05),
+				0 41px 16px 0 rgba(212, 212, 212, 0.01),
+				0 64px 18px 0 rgba(212, 212, 212, 0);
+			padding: 2rem;
+			margin-bottom: 0;
+		}
 	}
 
 	.filters__large {
 		display: none;
 	}
 
+	.products__layout {
+		margin-bottom: 4rem;
+	}
+
 	.products__grid {
 		display: grid;
 		justify-content: center;
 		gap: 2rem;
-		margin-bottom: 8rem;
+		margin-bottom: 0rem;
 
 		a {
 			cursor: default;
 		}
 	}
 
+	.load-more {
+		border: 1px solid #ea5544;
+		background-color: #ea5544;
+		color: #fff;
+		padding: 2.3rem 6rem;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 4rem;
+		font-size: 1.2rem;
+		line-height: 1.6rem;
+		font-weight: 600;
+	}
+
 	@media (min-width: 768px) {
 		.section {
 			padding: 0 3rem;
+		}
+
+		.filters {
+			.filter {
+				padding: 1.5rem 2.5rem;
+				border-radius: 29px;
+			}
+		}
+		.filters__btn {
+			max-width: 445px;
+			.filter__btn_accordion {
+				width: 100%;
+			}
 		}
 
 		.products__grid {
@@ -162,6 +208,15 @@
 		.products__grid {
 			flex: 3.2;
 			margin-bottom: 0;
+		}
+
+		.load-more {
+			transition: all 120ms linear;
+			&:hover {
+				cursor: pointer;
+				background-color: transparent;
+				color: #ea5544;
+			}
 		}
 	}
 }

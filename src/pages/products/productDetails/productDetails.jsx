@@ -19,7 +19,7 @@ function ProductDetails() {
 			setProduct(data);
 		}
 
-		getProduct(`products/${id}/`);
+		getProduct(`product/${id}/`);
 	}, [id]);
 
 	let hasProduct = false;

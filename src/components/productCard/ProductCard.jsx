@@ -4,7 +4,7 @@ function ProductCard({ el }) {
 	return (
 		<div className='product-card'>
 			<div className='card__img-wrapper'>
-				<img src={el.images[0]} alt={el.title} />
+				<img loading='lazy' src={el?.images[0]} alt={el.title} />
 			</div>
 			<div className='card__content'>
 				<h3>{el.name}</h3>

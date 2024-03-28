@@ -1,16 +1,18 @@
 import './home.3dtur.scss';
-import error from '../../../../assets/svg/404.svg';
 
 function Home3dTur() {
 	return (
 		<div className='home-3dtur'>
 			<section className='section'>
 				<div className='container'>
-					<h2 className='subtitle'>3d тур</h2>
-					<div className='home-3dtur__card'>
-						<img src={error} alt='404' />
-						<p>здесь скоро появится контент</p>
-					</div>
+					<iframe
+						title='3dtur'
+						width='853'
+						height='480'
+						src='https://my.matterhub.ru/8/GayBwuLXvXp/?m=GayBwuLXvXp'
+						frameborder='0'
+						allowfullscreen
+						allow='xr-spatial-tracking'></iframe>
 				</div>
 			</section>
 		</div>
