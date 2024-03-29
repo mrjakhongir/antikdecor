@@ -175,7 +175,7 @@ function Products() {
 					</div>
 					{nextLink && (
 						<button onClick={loadMoreProducts} className='load-more'>
-							Discover More
+							Загрузит больше
 						</button>
 					)}
 				</div>

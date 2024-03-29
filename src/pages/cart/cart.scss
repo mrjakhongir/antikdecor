@@ -30,8 +30,12 @@
 				justify-content: space-between;
 				gap: 1.1rem;
 
-				img {
-					max-width: 138px;
+				span {
+					img {
+						width: 138px;
+						height: 138px;
+						object-fit: cover;
+					}
 				}
 
 				> div {
@@ -44,6 +48,8 @@
 						line-height: 2rem;
 						font-weight: 600;
 						color: #9b9b9b;
+						max-height: 4rem;
+						overflow: hidden;
 
 						span {
 							color: #474747;
@@ -109,12 +115,14 @@
 				}
 			}
 
-			button {
+			a {
 				display: none;
 			}
 		}
 
-		button {
+		a {
+			display: block;
+			text-align: center;
 			width: 100%;
 			font-size: 1.1rem;
 			line-height: 1.4rem;
@@ -181,7 +189,7 @@
 					gap: 2rem;
 				}
 
-				button {
+				a {
 					display: block;
 					font-size: 1.1rem;
 					line-height: 1.4rem;
@@ -195,7 +203,7 @@
 				}
 			}
 
-			button {
+			a {
 				display: none;
 			}
 		}
@@ -272,7 +280,7 @@
 		.products__sum {
 			> div {
 				padding: 2.7rem 2.5rem;
-				button {
+				a {
 					font-size: 1.2rem;
 					line-height: 1.534rem;
 					transition: all 150ms linear;
@@ -323,7 +331,7 @@
 		.products__sum {
 			> div {
 				padding: 2.7rem 2.5rem;
-				button {
+				a {
 					font-size: 1.2rem;
 					line-height: 1.534rem;
 					transition: all 150ms linear;

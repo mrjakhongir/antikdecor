@@ -29,7 +29,7 @@ function HomeCatalog() {
 							},
 						}}>
 						{catalog.map((el) => (
-							<SwiperSlide>
+							<SwiperSlide key={el.id}>
 								{
 									<Link to={`catalog/${el.id}`}>
 										<figure>

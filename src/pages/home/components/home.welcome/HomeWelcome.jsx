@@ -5,7 +5,6 @@ import './home.welcome.scss';
 import 'swiper/css';
 
 import { getData } from '../../../../utils';
-import { Link } from 'react-router-dom';
 
 function HomeWelcome() {
 	const [banners, setBanners] = useState([]);

@@ -1,54 +1,148 @@
-import { Link, NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './navbar.scss';
+
 import smallLogo from '../../../../assets/svg/antikdecor_logo_small.svg';
 import exit from '../../../../assets/svg/exit.svg';
+import { getData } from '../../../../utils';
+
+const catalog = [
+	{
+		id: 7,
+		title: 'ЧАСЫ И НАУЧНЫЕ ПРИБОРЫ',
+	},
+
+	{
+		id: 1,
+		title: 'ЖИВОПИСЬ ГРАФИКА РИСУНОК',
+		subcategories: ['Российская', 'Европейская'],
+	},
+
+	{
+		id: 6,
+		title: 'МЕБЕЛЬ И ЗЕРКАЛА',
+	},
+	{
+		id: 10,
+		title: 'Гравюры',
+		subcategories: ['Анималистика', 'Европейская'],
+	},
+	{
+		id: 3,
+		title: 'Бронза',
+	},
+	{
+		id: 2,
+		title: 'Винный антиквариат',
+	},
+	{
+		id: 8,
+		title: 'ПРЕДМЕТЫ АНТИКВАРНОГО ДЕКОРА',
+	},
+	{
+		id: 9,
+		title: 'ИСКУССТВО ВОСТОКА',
+	},
+	{
+		id: 5,
+		title: 'ФАРФОР СТЕКЛО',
+	},
+	{
+		id: 4,
+		title: 'Серебро',
+	},
+];
 
 function Navbar({ show, func }) {
+	const [openCatalog, setOpenCatalog] = useState(false);
+	const [showMobileCategories, setShowMobileCategories] = useState(false);
+
+	const [searchResults, setSearchResults] = useState([]);
+	const [showSearchResults, setShowSearchResults] = useState(false);
+
+	async function handleSearch(e) {
+		const inputVal = e.target.value;
+		const searchData = await getData(`products/?search=${inputVal}`);
+		setSearchResults(searchData.results);
+		setOpenCatalog(false);
+
+		if (inputVal) {
+			setShowSearchResults(true);
+		} else {
+			setShowSearchResults(false);
+		}
+	}
+
+	function selectProduct() {
+		setShowSearchResults(false);
+		const input = document.querySelector('.search-input');
+		input.value = '';
+	}
+
+	function changeActiveLink(n, name) {
+		const LINKS = document.querySelectorAll('.nav-link');
+
+		LINKS.forEach((link, index) => {
+			link.classList.remove('active-link');
+
+			if (n === index) {
+				link.classList.add('active-link');
+			}
+
+			if (name === 'Каталог') {
+				setOpenCatalog(!openCatalog);
+			} else {
+				setOpenCatalog(false);
+			}
+		});
+		setShowSearchResults(false);
+		const input = document.querySelector('.search-input');
+		input.value = '';
+	}
+
 	return (
 		<nav className={`header__nav ${show && 'open-nav'}`}>
 			<section className='section'>
 				<div className='container'>
 					<div className='header__nav_large'>
 						<div className='nav__links'>
-							<NavLink
-								className={({ isActive }) =>
-									isActive ? 'active-link' : 'nav-link'
+							{[
+								{ name: 'Главная', link: '/' },
+								{ name: 'Каталог', link: '' },
+								{ name: 'Новости', link: '/news' },
+								{ name: 'О нас', link: '/about' },
+								{ name: 'Контакты', link: '/contacts' },
+							].map((el, index) => {
+								if (el.link) {
+									return (
+										<Link
+											key={index}
+											onClick={() => changeActiveLink(index, el.name)}
+											className={`nav-link ${index === 0 && 'active-link'}`}
+											to={el.link}>
+											{el.name}
+										</Link>
+									);
+								} else {
+									return (
+										<Link
+											key={index}
+											onClick={() => changeActiveLink(index, el.name)}
+											className={`nav-link ${index === 0 && 'active-link'}`}>
+											{el.name}
+										</Link>
+									);
 								}
-								to='/'>
-								Главная
-							</NavLink>
-							<NavLink
-								className={({ isActive }) =>
-									isActive ? 'active-link' : 'nav-link'
-								}
-								to='/catalog'>
-								Каталог
-							</NavLink>
-							<NavLink
-								className={({ isActive }) =>
-									isActive ? 'active-link' : 'nav-link'
-								}
-								to='/news'>
-								Новости
-							</NavLink>
-							<NavLink
-								className={({ isActive }) =>
-									isActive ? 'active-link' : 'nav-link'
-								}
-								to='/about'>
-								О нас
-							</NavLink>
-							<NavLink
-								className={({ isActive }) =>
-									isActive ? 'active-link' : 'nav-link'
-								}
-								to='/contacts'>
-								Контакты
-							</NavLink>
+							})}
 						</div>
 						<div className='nav__filter'>
 							<div>
-								<input type='text' placeholder='Поиск по каталогу' />
+								<input
+									onChange={(e) => handleSearch(e)}
+									type='text'
+									placeholder='Поиск по каталогу'
+									className='search-input'
+								/>
 								<svg
 									width='19'
 									height='19'
@@ -67,6 +161,112 @@ function Navbar({ show, func }) {
 							<button>Написать в WhatsApp</button>
 						</div>
 					</div>
+					<div
+						className={`search-results ${showSearchResults && 'open-search'}`}>
+						{searchResults.length ? (
+							searchResults.map((el) => (
+								<Link
+									onClick={() => selectProduct(el.name)}
+									to={`/products/${el.id}`}>
+									<span>
+										<img src={el.images[0]} alt='' />
+									</span>
+									<p>{el.name}</p>
+								</Link>
+							))
+						) : (
+							<p>Not found</p>
+						)}
+					</div>
+				</div>
+				<div className={`nav__catalog ${openCatalog && 'open-catalog'}`}>
+					<div className='nav__catalog-column'>
+						<h5 className='nav__catalog-title'>Живопись, графика</h5>
+						<Link className='catalog-subcategories' to=''>
+							Российская
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Европейская
+						</Link>
+					</div>
+					<div className='nav__catalog-column'>
+						<h5 className='nav__catalog-title'>Гравюры, литографии</h5>
+						<Link className='catalog-subcategories' to=''>
+							Анималистика
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Ботаника
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Бытовые и жанровые сцены
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Архитектура, виды городов
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Батальный жанр
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Модные гравюры
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Портрет
+						</Link>
+					</div>
+					<div className='nav__catalog-column'>
+						<Link className='catalog-subcategories' to=''>
+							Географические карты и планы
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Морская тема
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Дети
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Религиозные сюжеты
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Мифология
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Пейзаж
+						</Link>
+						<Link className='catalog-subcategories' to=''>
+							Спорт, Охота, Рыбалка
+						</Link>
+					</div>
+					<div className='nav__catalog-column'>
+						<Link className='catalog-categories' to=''>
+							Стекло
+						</Link>
+						<Link className='catalog-categories' to=''>
+							Бронза
+						</Link>
+						<Link className='catalog-categories' to=''>
+							Мебель и зеркала
+						</Link>
+						<Link className='catalog-categories' to=''>
+							Антикварные штопоры и <br></br>винный антиквариат
+						</Link>
+						<Link className='catalog-categories' to=''>
+							Искусство Востока,<br></br> Африки и Азии
+						</Link>
+					</div>
+					<div className='nav__catalog-column'>
+						<Link className='catalog-categories' to=''>
+							Фарфор
+						</Link>
+						<Link className='catalog-categories' to=''>
+							Осветительные приборы
+						</Link>
+						<Link className='catalog-categories' to=''>
+							Предметы антикварного декора
+						</Link>
+						<Link className='catalog-categories' to=''>
+							Предметы антикварного декора
+						</Link>
+					</div>
 				</div>
 			</section>
 			<div className='header__nav_small'>
@@ -81,9 +281,82 @@ function Navbar({ show, func }) {
 					<Link onClick={() => func(!show)} to='/'>
 						Главная
 					</Link>
-					<Link onClick={() => func(!show)} to='/catalog'>
-						Каталог
-					</Link>
+					<div className='nav__accordion'>
+						<div
+							onClick={() => setShowMobileCategories(!showMobileCategories)}
+							className={`accordion-title ${
+								showMobileCategories && 'selected-title'
+							}`}>
+							<span>Каталог</span>
+							<svg
+								width='14'
+								height='8'
+								viewBox='0 0 14 8'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'>
+								<path
+									className='nav__caret'
+									d='M12.5527 6.87988L6.77637 1.11988L1.00001 6.87988'
+									stroke='#ea5544'
+									strokeWidth='1.5'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								/>
+							</svg>
+						</div>
+						<div
+							className={`accordion-body ${
+								showMobileCategories && 'show-accordion-body'
+							}`}>
+							<div>
+								<div className='accordion-title'>
+									<span>Живопись, графика</span>
+									<svg
+										width='14'
+										height='8'
+										viewBox='0 0 14 8'
+										fill='none'
+										xmlns='http://www.w3.org/2000/svg'>
+										<path
+											className='nav__caret'
+											d='M12.5527 6.87988L6.77637 1.11988L1.00001 6.87988'
+											stroke='#ea5544'
+											strokeWidth='1.5'
+											strokeLinecap='round'
+											strokeLinejoin='round'
+										/>
+									</svg>
+								</div>
+
+								<div className='accordion-title'>
+									<span>Гравюры, литографии</span>
+									<svg
+										width='14'
+										height='8'
+										viewBox='0 0 14 8'
+										fill='none'
+										xmlns='http://www.w3.org/2000/svg'>
+										<path
+											className='nav__caret'
+											d='M12.5527 6.87988L6.77637 1.11988L1.00001 6.87988'
+											stroke='#ea5544'
+											strokeWidth='1.5'
+											strokeLinecap='round'
+											strokeLinejoin='round'
+										/>
+									</svg>
+								</div>
+								<Link>Стекло</Link>
+								<Link>Бронза</Link>
+								<Link>Мебель и зеркала</Link>
+								<Link>Антикварные штопоры и винный антиквариат</Link>
+								<Link>Искусство Востока, Африки и Азии</Link>
+								<Link>Фарфор</Link>
+								<Link>Осветительные приборы</Link>
+								<Link>Предметы антикварного декора</Link>
+							</div>
+						</div>
+					</div>
 
 					<Link onClick={() => func(!show)} to='/news'>
 						Новости

@@ -9,6 +9,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import NewsDetail from './pages/news/newsDetail/NewsDetail';
 import ProductDetails from './pages/products/productDetails/productDetails';
+import Checkout from './pages/checkout/Checkout';
 
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -40,13 +41,14 @@ function App() {
 				<Route path='/' element={<Home />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/cart' element={<Cart />} />
-				{/* <Route path='/catalog' element={<Catalog />} /> */}
+				<Route path='/catalog' element={<Catalog />} />
 				<Route path='/catalog/:id' element={<Products />} />
 				<Route path='/catalog/:id/:id' element={<ProductDetails />} />
 				<Route path='/products/:id' element={<ProductDetails />} />
 				<Route path='/contacts' element={<Contacts />} />
 				<Route path='/news' element={<News />} />
 				<Route path='/news/:id' element={<NewsDetail />} />
+				<Route path='/checkout' element={<Checkout />} />
 			</Routes>
 			<Footer />
 		</>

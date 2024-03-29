@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './cart.scss';
+import { Link } from 'react-router-dom';
 
 function Cart() {
 	const [cartData, setCartData] = useState([]);
@@ -52,7 +53,9 @@ function Cart() {
 							cartData.map((product) => (
 								<div className='product'>
 									<div className='product__details'>
-										<img src={product.images[0]} alt='clock' />
+										<span>
+											<img src={product.images[0]} alt='clock' />
+										</span>
 
 										<div>
 											<div>
@@ -104,9 +107,9 @@ function Cart() {
 									{totalSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽
 								</span>
 							</div>
-							<button>Оформить заказ</button>
+							<Link to={'/checkout'}>Оформить заказ</Link>
 						</div>
-						<button>Оформить заказ</button>
+						<Link to={'/checkout'}>Оформить заказ</Link>
 					</div>
 				</div>
 			</section>

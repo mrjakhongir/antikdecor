@@ -44,7 +44,7 @@ function HomeAbout() {
 								},
 							}}>
 							{aboutData.map((el) => (
-								<SwiperSlide>
+								<SwiperSlide key={el.id}>
 									<figure>
 										<img src={el.img} alt='golden vase' />
 										<figcaption>{el.title}</figcaption>

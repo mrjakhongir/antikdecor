@@ -3,6 +3,7 @@
 
 	.swiper {
 		position: relative;
+
 		.swiper-slide {
 			height: 688px;
 			background-color: #999;
@@ -103,7 +104,7 @@
 				display: flex;
 				gap: 2rem;
 
-				z-index: 2;
+				z-index: 1;
 
 				.pagination_prev_btn,
 				.pagination_next_btn {
