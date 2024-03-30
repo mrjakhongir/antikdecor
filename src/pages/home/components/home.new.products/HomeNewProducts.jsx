@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import './home.new.products.scss';
-import arrowRight from '../../../../assets/svg/arrow_right_gray.svg';
+import arrow_white from '../../../../assets/svg/arrow_white.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 
 import { getData } from '../../../../utils';
@@ -28,10 +29,15 @@ function HomeNewProducts() {
 					</div>
 
 					<Swiper
+						modules={[Navigation]}
 						centeredSlides={false}
 						slidesPerView={1}
 						spaceBetween={10}
 						loop={true}
+						navigation={{
+							prevEl: '.prev_btn_new-product',
+							nextEl: '.next_btn_new-product',
+						}}
 						breakpoints={{
 							768: { slidesPerView: 2 },
 							1024: {
@@ -83,6 +89,14 @@ function HomeNewProducts() {
 							</SwiperSlide>
 						))}
 					</Swiper>
+					<div className='navigation_mobile'>
+						<button className='prev_btn prev_btn_new-product'>
+							<img src={arrow_white} alt='arrow' />
+						</button>
+						<button className='next_btn next_btn_new-product'>
+							<img src={arrow_white} alt='arrow' />
+						</button>
+					</div>
 				</div>
 			</section>
 		</div>

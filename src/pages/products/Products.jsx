@@ -107,7 +107,6 @@ function Products() {
 	}
 
 	function openMobileFilters() {
-		// setOpenFilterBtn(!openFilterBtn);
 		setOpenFilterBtn(!openFilterBtn);
 	}
 
@@ -142,7 +141,7 @@ function Products() {
 									<Accordion
 										key={accardion.id}
 										acc={accardion}
-										func={setProducts}
+										setProducts={setProducts}
 										categoryId={categoryId}
 										catalogId={id}
 										setNextLink={setNextLink}
@@ -158,7 +157,7 @@ function Products() {
 								<Accordion
 									key={accardion.id}
 									acc={accardion}
-									func={setProducts}
+									setProducts={setProducts}
 									categoryId={categoryId}
 									catalogId={id}
 									setNextLink={setNextLink}

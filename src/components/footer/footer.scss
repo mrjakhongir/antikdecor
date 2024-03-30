@@ -78,10 +78,12 @@
 		}
 	}
 
-	> img {
-		display: block;
-		margin: 0 auto;
-		max-width: 191px;
+	.footer_logo {
+		img {
+			display: block;
+			margin: 0 auto;
+			max-width: 191px;
+		}
 	}
 
 	@media (min-width: 768px) {
@@ -121,9 +123,11 @@
 				}
 			}
 		}
-		> img {
-			max-width: 223px;
-			margin-left: 0;
+		.footer_logo {
+			img {
+				max-width: 223px;
+				margin-left: 0;
+			}
 		}
 		h3 {
 			text-transform: uppercase;

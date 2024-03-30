@@ -18,6 +18,7 @@ import { getData } from './utils';
 import Cart from './pages/cart/Cart';
 
 function App() {
+
 	const dispatch = useDispatch();
 	const location = useLocation();
 
@@ -32,6 +33,7 @@ function App() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
+		console.log(location.pathname);
 	}, [location.pathname]);
 
 	return (

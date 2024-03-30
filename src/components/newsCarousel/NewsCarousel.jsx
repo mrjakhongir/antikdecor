@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import './news.carousel.scss';
 import arrowRight from '../../assets/svg/arrow_right_accent.svg';
+import arrow_white from '../../assets/svg/arrow_white.svg';
 import { useSelector } from 'react-redux';
 
 function NewsCarousel() {
@@ -12,9 +14,14 @@ function NewsCarousel() {
 			<section className='section'>
 				<div className='container'>
 					<Swiper
+						modules={[Navigation]}
 						slidesPerView={1}
 						spaceBetween={10}
 						loop={true}
+						navigation={{
+							prevEl: '.prev_btn_news',
+							nextEl: '.next_btn_news',
+						}}
 						breakpoints={{
 							768: {
 								slidesPerView: 2,
@@ -54,6 +61,14 @@ function NewsCarousel() {
 							</SwiperSlide>
 						))}
 					</Swiper>
+					<div className='navigation_mobile'>
+						<button className='prev_btn prev_btn_news'>
+							<img src={arrow_white} alt='arrow' />
+						</button>
+						<button className='next_btn next_btn_news'>
+							<img src={arrow_white} alt='arrow' />
+						</button>
+					</div>
 				</div>
 			</section>
 		</div>

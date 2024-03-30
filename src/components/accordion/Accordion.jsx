@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './accordion.scss';
 import { getData } from '../../utils';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 function Accordion({
 	acc,
-	func,
+	setProducts,
 	categoryId,
 	catalogId,
 	setNextLink,
@@ -14,12 +16,18 @@ function Accordion({
 
 	const [accordionOpen, isAccordionOpen] = useState(true);
 
+	const { subCatId } = useSelector((state) => state.subCatId);
+	const { catId } = useSelector((state) => state.catId);
+
+	const location = useLocation();
+
 	categoryId = categoryId || catalogId;
 
 	async function selectSidebarCart(id) {
 		const sidebarSubcategories = document.querySelectorAll(
 			'.sidebar-subcategory'
 		);
+
 		sidebarSubcategories.forEach((el) => {
 			el.classList.remove('active-sidebar-subcategory');
 			if (+el.dataset.sidebar === id) {
@@ -31,12 +39,39 @@ function Accordion({
 			`products/?category_id=${categoryId}&sidebar_id=${id}`
 		);
 
-		func(data.results);
+		setProducts(data.results);
 		setNextLink(data.next);
 		if (setOpenFilterBtn) {
 			setOpenFilterBtn(false);
 		}
 	}
+
+	async function selectSidebarCartFromDropdown() {
+		const sidebarSubcategories = document.querySelectorAll(
+			'.sidebar-subcategory'
+		);
+
+		sidebarSubcategories.forEach((el) => {
+			el.classList.remove('active-sidebar-subcategory');
+			if (+el.dataset.sidebar === subCatId) {
+				el.classList.add('active-sidebar-subcategory');
+			}
+		});
+
+		const data = await getData(
+			`products/?category_id=${catId}&sidebar_id=${subCatId}`
+		);
+
+		setProducts(data.results);
+		setNextLink(data.next);
+		if (setOpenFilterBtn) {
+			setOpenFilterBtn(false);
+		}
+	}
+
+	useEffect(() => {
+		selectSidebarCartFromDropdown();
+	}, [location.state]);
 
 	return (
 		<div className='accordion'>

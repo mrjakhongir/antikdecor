@@ -1,13 +1,47 @@
+import { getData } from '../../utils';
 import Hamburger from '../hamburger/Hamburger';
 import './search.mobile.scss';
 
-function SeachMobile({ showSearch, showNav, func, theme, onClick }) {
+function SeachMobile({
+	showSearch,
+	showNav,
+	setShowNav,
+	theme,
+	setShowSearch,
+	setShowSearchResults,
+	setSearchResults,
+}) {
+	async function handleSearch(e) {
+		const inputVal = e.target.value;
+		const searchData = await getData(`products/?search=${inputVal}`);
+		setSearchResults(searchData.results);
+
+		if (inputVal) {
+			setShowSearchResults(true);
+		} else {
+			setShowSearchResults(false);
+		}
+	}
+
+	function closeSearchResults() {
+		console.log('first');
+		setShowSearch(!showSearch);
+		setShowSearchResults(false);
+		const INPUT_EL = document.querySelector('.search-input');
+		INPUT_EL.value = '';
+	}
+
 	return (
 		<div className={`search-mobile ${showSearch && 'show-search-mobile'}`}>
-			<Hamburger show={showNav} func={func} theme={theme} />
+			<Hamburger show={showNav} func={setShowNav} theme={theme} />
 			<div className='search-bar'>
-				<input type='text' placeholder='Введите запрос' />
-				<span onClick={() => onClick(!showSearch)}>
+				<input
+					type='text'
+					placeholder='Введите запрос'
+					onChange={handleSearch}
+					className='search-input'
+				/>
+				<span onClick={closeSearchResults}>
 					<svg
 						width='19'
 						height='19'

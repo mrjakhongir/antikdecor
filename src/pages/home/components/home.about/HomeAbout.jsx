@@ -14,7 +14,7 @@ function HomeAbout() {
 					<div className='home-about__content'>
 						<h2 className='subtitle'>о нашей компании</h2>
 						<p>
-							"Гравюрный кабинет <span>Antikdecor</span> – камерный антикварный
+							Гравюрный кабинет <span>Antikdecor</span> – камерный антикварный
 							магазин в старинном доме начала XX века, расположенном на Садовом
 							кольце в шаговой доступности от м.Курская.  
 						</p>

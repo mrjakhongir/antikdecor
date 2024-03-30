@@ -75,6 +75,7 @@
 			.nav__accordion {
 				border-bottom: 1px solid #eaeaea;
 				.accordion-title {
+					display: block;
 					padding: 2.4rem 3rem;
 					font-size: 1.3rem;
 					line-height: 1.661rem;
@@ -100,6 +101,7 @@
 					svg {
 						transform: rotate(180deg);
 					}
+
 					.nav__caret {
 						stroke: #9b9b9b;
 					}
@@ -120,11 +122,35 @@
 						color: #777;
 
 						padding: 2.4rem 3rem;
-						border-bottom: 1px solid #eaeaea;
+						padding-left: 4rem;
 					}
 
 					div {
 						color: #777;
+					}
+
+					.accordion-title {
+						padding-left: 4rem;
+
+						border-bottom: 1px solid #eaeaea;
+					}
+
+					.selected-subtitle {
+						background-color: #f6f6f6;
+
+						svg {
+							transform: rotate(180deg);
+						}
+
+						.nav__caret {
+							stroke: #9b9b9b;
+						}
+					}
+
+					.sub-body {
+						a {
+							padding-left: 5.5rem;
+						}
 					}
 				}
 
@@ -149,9 +175,11 @@
 		background-color: #fff;
 		position: unset;
 		transform: translateX(0%);
+		position: relative;
+		padding: 0;
 
 		.section {
-			padding: 2.3rem 3rem;
+			padding: 2.9rem 3rem;
 		}
 
 		.header__nav_small {
@@ -174,6 +202,7 @@
 					color: #242424;
 					font-weight: 600;
 					position: relative;
+					padding: 1rem 0;
 
 					&::after {
 						position: absolute;
@@ -181,7 +210,7 @@
 						height: 2px;
 						width: 0%;
 						background-color: #242424;
-						top: 25px;
+						top: 35px;
 						left: 50%;
 						transform: translateX(-50%);
 						transition: all 120ms linear;
@@ -201,9 +230,90 @@
 						height: 2px;
 						width: 70%;
 						background-color: #242424;
-						top: 25px;
+						top: 35px;
 						left: 50%;
 						transform: translateX(-50%);
+					}
+				}
+
+				.nav__catalog {
+					display: none;
+
+					background-color: #fff;
+					position: fixed;
+					top: 90px;
+					left: 0;
+					right: 0;
+
+					&::before {
+						position: absolute;
+						width: 100%;
+						height: 40px;
+						content: '';
+						top: -30px;
+						border-bottom: 3px solid #eee;
+					}
+
+					.catalog__inner {
+						display: flex;
+						align-items: flex-start;
+						justify-content: space-between;
+						gap: 2rem;
+						padding: 2rem 3rem;
+						padding-top: 4rem;
+
+						.nav__catalog-column {
+							display: flex;
+							flex-direction: column;
+							gap: 0.8rem;
+						}
+
+						.nav__catalog-title {
+							font-size: 1.6rem;
+							line-height: 2rem;
+							font-weight: 700;
+							margin-bottom: 0.4rem;
+
+							a {
+								color: #474747;
+							}
+						}
+
+						.catalog-subcategories {
+							font-size: 1.4rem;
+							line-height: 2.1rem;
+							font-weight: 600;
+							color: #9b9b9b;
+							transition: all 120ms linear;
+
+							&:hover {
+								cursor: pointer;
+								color: #ea5544;
+							}
+						}
+
+						.catalog-categories {
+							font-size: 1.5rem;
+							line-height: 1.9rem;
+							font-weight: 700;
+							color: #474747;
+							text-decoration: underline;
+							transition: all 120ms linear;
+							margin-bottom: 0.5rem;
+
+							&:hover {
+								cursor: pointer;
+								text-decoration: none;
+							}
+						}
+					}
+				}
+
+				.catalog-link:hover .nav__catalog {
+					display: block;
+					.catalog__inner {
+						max-width: 1296px;
+						margin: 0 auto;
 					}
 				}
 			}
@@ -289,65 +399,6 @@
 		.open-search {
 			padding: 1rem;
 			display: grid;
-		}
-	}
-
-	@media (min-width: 920px) {
-		.nav__catalog {
-			display: none;
-			align-items: flex-start;
-			justify-content: space-between;
-			gap: 2rem;
-			padding: 4rem 2rem;
-			background-color: #fff;
-			margin-top: 2rem;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.12);
-
-			.nav__catalog-column {
-				display: flex;
-				flex-direction: column;
-				gap: 0.8rem;
-			}
-
-			.nav__catalog-title {
-				font-size: 1.6rem;
-				line-height: 2rem;
-				font-weight: 700;
-				color: #474747;
-				margin-bottom: 0.4rem;
-			}
-
-			.catalog-subcategories {
-				font-size: 1.4rem;
-				line-height: 2.1rem;
-				font-weight: 600;
-				color: #9b9b9b;
-				transition: all 120ms linear;
-
-				&:hover {
-					cursor: pointer;
-					color: #ea5544;
-				}
-			}
-
-			.catalog-categories {
-				font-size: 1.5rem;
-				line-height: 1.9rem;
-				font-weight: 700;
-				color: #474747;
-				text-decoration: underline;
-				transition: all 120ms linear;
-				margin-bottom: 0.5rem;
-
-				&:hover {
-					cursor: pointer;
-					text-decoration: none;
-				}
-			}
-		}
-
-		.open-catalog {
-			display: flex;
 		}
 	}
 

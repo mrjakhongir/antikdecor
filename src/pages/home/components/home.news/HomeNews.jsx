@@ -1,6 +1,7 @@
 import NewsCarousel from '../../../../components/newsCarousel/NewsCarousel';
 import './home.news.scss';
 
+
 function HomeNews() {
 	return (
 		<div className='home-news'>

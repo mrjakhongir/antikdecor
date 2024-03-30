@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import { Pagination, Navigation } from 'swiper/modules';
-import './home.welcome.scss';
 import 'swiper/css';
 
+import './home.welcome.scss';
 import { getData } from '../../../../utils';
 
 function HomeWelcome() {

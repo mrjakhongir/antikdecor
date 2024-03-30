@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import arrow_white from '../../assets/svg/arrow_white.svg';
 
 import './videos.carousel.scss';
 import 'swiper/css';
@@ -25,9 +27,14 @@ function VideosCarousel() {
 				<div className='container'>
 					<h2 className='subtitle'>Видео</h2>
 					<Swiper
+						modules={[Navigation]}
 						slidesPerView={1}
 						spaceBetween={10}
 						loop={true}
+						navigation={{
+							prevEl: '.prev_btn_video',
+							nextEl: '.next_btn_video',
+						}}
 						breakpoints={{
 							768: {
 								slidesPerView: 2,
@@ -57,6 +64,14 @@ function VideosCarousel() {
 							</SwiperSlide>
 						))}
 					</Swiper>
+					<div className='navigation_mobile'>
+						<button className='prev_btn prev_btn_video'>
+							<img src={arrow_white} alt='arrow' />
+						</button>
+						<button className='next_btn next_btn_video'>
+							<img src={arrow_white} alt='arrow' />
+						</button>
+					</div>
 				</div>
 			</section>
 		</div>

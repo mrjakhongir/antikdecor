@@ -111,7 +111,9 @@ function Footer() {
 							</Link>
 						</div>
 					</nav>
-					<img src={footerLogo} alt='logo antikdecor' />
+					<Link className='footer_logo' to='/'>
+						<img src={footerLogo} alt='logo antikdecor' />
+					</Link>
 				</div>
 			</section>
 		</footer>
